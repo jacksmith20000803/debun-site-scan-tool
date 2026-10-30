@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "boilerplatePatterns": [
+    "^__esModule$",
+    "^__webpack_[\\w$]*$",
+    "^webpackJsonp$",
+    "^webpackChunk[\\w$]*$"
+  ],
+  "bundlers": {
+    "webpack": {
+      "package": "webpack",
+      "version": "5.112.0",
+      "priority": 20,
+      "identifierPatterns": [
+        "^__webpack_require__$",
+        "^webpackJsonp$",
+        "^webpackChunk[A-Za-z0-9_$]*$"
+      ],
+      "codePatterns": [
+        "webpackBootstrap",
+        "__webpack_modules__"
+      ],
+      "registrationPatterns": [
+        "webpackJsonp",
+        "webpackChunk[A-Za-z0-9_$]*"
+      ],
+      "metadataPatterns": [],
+      "sourceMapPatterns": [
+        "webpack:\\/\\/([^/]+)\\/.*?node_modules\\/((?:@[^/\\s]+\\/)?[^/\\s]+)"
+      ],
+      "urlPatterns": [
+        "webpack"
+      ]
+    },
+    "esbuild": {
+      "package": "esbuild",
+      "version": "0.28.2",
+      "priority": 40,
+      "identifierPatterns": [
+        "^__commonJS$",
+        "^__toESM$",
+        "^__toCommonJS$",
+        "^__require$",
+        "^__defProp$",
+        "^__getOwnPropDesc$",
+        "^__getOwnPropNames$",
+        "^__hasOwnProp$",
+        "^__copyProps$",
+        "^__reExport$",
+        "^__spreadValues$",
+        "^__publicField$",
+        "^__name$"
+      ],
+      "codePatterns": [
+        "__commonJS",
+        "__toESM",
+        "__require\\s*=\\s*\\(\\)"
+      ],
+      "registrationPatterns": [],
+      "metadataPatterns": [],
+      "sourceMapPatterns": [],
+      "urlPatterns": []
+    },
+    "rollup": {
+      "package": "rollup",
+      "version": "4.64.10",
+      "priority": 30,
+      "identifierPatterns": [
+        "^__esModule$"
+      ],
+      "codePatterns": [
+        "Object\\.defineProperty\\s*\\(\\s*exports"
+      ],
+      "registrationPatterns": [],
+      "metadataPatterns": [
+        "Object\\.defineProperty\\s*\\(\\s*exports\\s*,\\s*[\"']__esModule[\"']"
+      ],
+      "sourceMapPatterns": [],
+      "urlPatterns": []
+    },
+    "vite": {
+      "package": "vite",
+      "version": "8.3.4",
+      "priority": 25,
+      "identifierPatterns": [
+        "^__vite__mapDeps$",
+        "^__vitePreload$"
+      ],
+      "codePatterns": [
+        "/@vite/client",
+        "vite/modulepreload-polyfill",
+        "import\\.meta\\.hot"
+      ],
+      "registrationPatterns": [],
+      "metadataPatterns": [],
+      "sourceMapPatterns": [
+        "\\.vite\\/deps\\/((?:@[^/\\s.]+\\/)?[^/\\s.]+?)(?:\\.js)?(?:\\?|$)"
+      ],
+      "urlPatterns": [
+        "/@vite/",
+        "vite"
+      ]
+    },
+    "turbopack": {
+      "package": "next",
+      "version": "Next.js 16.4.2 stable; 16.5.0-canary.17 canary",
+      "priority": 10,
+      "identifierPatterns": [
+        "^TURBOPACK$",
+        "^__turbopack_[A-Za-z0-9_$]+$"
+      ],
+      "codePatterns": [
+        "TURBOPACK\\s*\\|\\|",
+        "TURBOPACK\\s*\\.push"
+      ],
+      "registrationPatterns": [
+        "TURBOPACK"
+      ],
+      "metadataPatterns": [],
+      "sourceMapPatterns": [],
+      "urlPatterns": [
+        "turbopack"
+      ],
+      "observedVersions": {
+        "stable": "16.4.2",
+        "canary": "16.5.0-canary.17"
+      }
+    },
+    "parcel": {
+      "package": "@parcel/core",
+      "version": "2.16.4",
+      "priority": 35,
+      "identifierPatterns": [
+        "^parcelRequire$",
+        "^__parcel__require__$"
+      ],
+      "codePatterns": [
+        "parcel\\.js"
+      ],
+      "registrationPatterns": [],
+      "metadataPatterns": [],
+      "sourceMapPatterns": [],
+      "urlPatterns": [
+        "parcel"
+      ]
+    }
+  }
+}

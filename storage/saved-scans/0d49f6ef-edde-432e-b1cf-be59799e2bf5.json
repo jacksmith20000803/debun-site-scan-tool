@@ -1,0 +1,447 @@
+{
+  "id": "0d49f6ef-edde-432e-b1cf-be59799e2bf5",
+  "createdAt": "2026-10-23T07:33:25.043Z",
+  "url": "https://www.shopify.com/",
+  "finalUrl": "https://www.shopify.com/",
+  "framework": "react",
+  "bundler": "unknown",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 5,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://www.shopify.com/",
+    "finalUrl": "https://www.shopify.com/",
+    "framework": "react",
+    "bundler": "unknown",
+    "pagesScanned": 1,
+    "totalDependencies": 5,
+    "dependencies": [
+      {
+        "name": "@chakra-ui/react",
+        "version": "unknown"
+      },
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "version": "unknown"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "version": "unknown"
+      },
+      {
+        "name": "bootstrap",
+        "version": "unknown"
+      },
+      {
+        "name": "react",
+        "version": "unknown"
+      }
+    ],
+    "vulnerabilities": [],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://www.shopify.com/",
+    "finalUrl": "https://www.shopify.com/",
+    "scanMode": "shallow",
+    "fetchedAt": "2026-10-23T07:33:25.043Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "react",
+    "bundler": "unknown",
+    "dashboardScan": {
+      "websiteUrl": "https://www.shopify.com/",
+      "finalUrl": "https://www.shopify.com/",
+      "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+      "status": 200,
+      "framework": "react",
+      "bundler": "unknown",
+      "detectionReason": "react runtime markers were found.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://www.shopify.com/",
+      "finalUrl": "https://www.shopify.com/",
+      "framework": "react",
+      "bundler": "unknown",
+      "pagesScanned": 1,
+      "totalDependencies": 5,
+      "dependencies": [
+        {
+          "name": "@chakra-ui/react",
+          "version": "unknown"
+        },
+        {
+          "name": "@fortawesome/fontawesome-free",
+          "version": "unknown"
+        },
+        {
+          "name": "@sveltejs/kit",
+          "version": "unknown"
+        },
+        {
+          "name": "bootstrap",
+          "version": "unknown"
+        },
+        {
+          "name": "react",
+          "version": "unknown"
+        }
+      ],
+      "vulnerabilities": [],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 1,
+      "maxDepth": 0,
+      "maxLinksPerPage": 0,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://www.shopify.com/",
+        "finalUrl": "https://www.shopify.com/",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+        "framework": "react",
+        "bundler": "unknown",
+        "frameworkReason": "react runtime markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 5,
+        "errors": [],
+        "packageNames": [
+          "@chakra-ui/react",
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "react"
+        ]
+      }
+    ],
+    "initialPackages": [
+      {
+        "name": "@chakra-ui/react",
+        "rawNames": [
+          "@chakra-ui/react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); Chakra UI class; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "rawNames": [
+          "@fortawesome/fontawesome-free"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 170 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 216 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 213 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); React runtime global; React runtime global read; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      }
+    ],
+    "newlyDiscovered": [],
+    "packageCount": 5,
+    "packages": [
+      {
+        "name": "@chakra-ui/react",
+        "rawNames": [
+          "@chakra-ui/react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); Chakra UI class; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://www.shopify.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "rawNames": [
+          "@fortawesome/fontawesome-free"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 170 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://www.shopify.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 216 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://www.shopify.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 213 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://www.shopify.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); React runtime global; React runtime global read; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://www.shopify.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

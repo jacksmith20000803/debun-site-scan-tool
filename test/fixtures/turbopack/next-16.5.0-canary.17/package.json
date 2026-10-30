@@ -1,0 +1,11 @@
+{
+  "name": "debun-plus-turbopack-canary-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "next": "16.5.0-canary.17",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "lodash": "4.18.1"
+  }
+}

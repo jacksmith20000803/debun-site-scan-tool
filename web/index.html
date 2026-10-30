@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050c1b" />
+    <title>WebScan · Website Security Intelligence</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body>
+    <div class="scan-sweep" id="scan-sweep" aria-hidden="true"></div>
+    <div class="app-layout">
+      <input class="sidebar-toggle-control" id="sidebar-toggle" type="checkbox" aria-label="Toggle navigation" />
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="WebScan home">
+          <span class="brand-mark"><img src="/ico.ico" alt="" /></span>
+          <span class="brand-copy"><strong>WebScan</strong></span>
+        </a>
+        <nav class="side-navigation" aria-label="Workspace sections">
+          <p class="navigation-heading">WORKSPACE</p>
+          <a class="navigation-item active" href="/" aria-current="page" title="New scan">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 5 5M10.8 7.5v6.6M7.5 10.8h6.6" /></svg>
+            <span>New scan</span>
+          </a>
+          <a class="navigation-item" href="#results" title="Scan results">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 12h8M8 15h5" /></svg>
+            <span>Scan results</span>
+          </a>
+          <a class="navigation-item" href="#pages-summary" title="Pages visited">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" /><circle cx="12" cy="9" r="2.3" /></svg>
+            <span>Pages visited</span>
+          </a>
+          <p class="navigation-heading navigation-heading-spaced">LIBRARY</p>
+          <a class="navigation-item" href="/saved" title="Saved scans">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h14v16l-7-4-7 4z" /></svg>
+            <span>Saved scans</span>
+          </a>
+        </nav>
+        <div class="sidebar-promo" aria-label="Security first. Build with confidence.">
+          <span class="sidebar-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5 20 5.7v5.5c0 5.2-3.4 8.5-8 10.3-4.6-1.8-8-5.1-8-10.3V5.7l8-3.2Z"/><path d="m8.5 11.8 2.2 2.2 4.8-4.8"/></svg></span>
+          <span class="sidebar-promo-copy"><small>SECURITY FIRST</small><strong>Build with confidence</strong><span>Stay ahead of threats.</span></span>
+        </div>
+      </aside>
+      <label class="sidebar-overlay" for="sidebar-toggle" aria-label="Close navigation"></label>
+
+      <div class="main-column">
+        <main class="shell" id="overview">
+          <label class="mobile-menu-toggle mobile-nav-trigger" for="sidebar-toggle" aria-label="Open navigation">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </label>
+
+          <header class="page-hero"><div class="eyebrow"><span class="eyebrow-line"></span> WEBSITE SECURITY INTELLIGENCE</div><h1>Start a new scan</h1><p>Scan a website to discover its technology stack and known vulnerabilities.</p></header>
+
+          <section class="workspace" aria-label="Analyze websites">
+            <div class="mode-tabs" role="tablist" aria-label="Input mode">
+              <button class="mode-tab active" id="single-tab" role="tab" aria-selected="true" aria-controls="single-panel">Single site</button>
+              <button class="mode-tab" id="batch-tab" role="tab" aria-selected="false" aria-controls="batch-panel">URL list</button>
+            </div>
+
+            <fieldset class="scan-mode-picker" aria-describedby="scan-mode-description">
+              <legend class="field-label">SCAN MODE</legend>
+              <div class="scan-mode-options">
+                <label class="scan-mode-option">
+                  <input type="radio" name="scan-mode" value="deep" checked />
+                  <span class="scan-mode-option-copy"><strong>Deep scan</strong><small>Scan the destination, requested page, and linked pages.</small></span>
+                  <span class="scan-mode-check" aria-hidden="true">✓</span>
+                </label>
+                <label class="scan-mode-option">
+                  <input type="radio" name="scan-mode" value="shallow" />
+                  <span class="scan-mode-option-copy"><strong>Shallow scan</strong><small>Scans only the final URL; skips linked pages.</small></span>
+                  <span class="scan-mode-check" aria-hidden="true">✓</span>
+                </label>
+              </div>
+              <p class="scan-mode-description" id="scan-mode-description">Deep mode follows first-level links after checking the destination root and requested page.</p>
+            </fieldset>
+
+            <section class="input-panel" id="single-panel" role="tabpanel" aria-labelledby="single-tab">
+              <form id="single-form">
+                <label class="field-label" for="target-url">WEBSITE URL</label>
+                <div class="input-row"><span class="input-prefix" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13.5 7.9 15.6a4 4 0 0 1-5.7-5.7l4-4a4 4 0 0 1 5.7 0"/><path d="m14 10.5 2.1-2.1a4 4 0 0 1 5.7 5.7l-4 4a4 4 0 0 1-5.7 0"/><path d="m8.5 15.5 7-7"/></svg></span><input id="target-url" name="url" type="url" placeholder="https://your-site.com" autocomplete="url" required /><button class="primary-button" type="submit"><svg class="primary-button-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M13.2 2 5.8 13h5l-.8 9L18.2 11h-5l.8-9Z"/></svg><span class="primary-button-label">Analyze Site</span></button></div>
+                <div class="input-hint"><span class="hint-icon" aria-hidden="true">i</span> The selected scan mode controls whether linked pages are included.</div><p id="url-validation-message" class="validation-message" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <section class="input-panel" id="batch-panel" role="tabpanel" aria-labelledby="batch-tab" hidden>
+              <form id="batch-form">
+                <label class="field-label" for="url-file">TEXT FILE <span class="label-soft">· one URL per line · up to 25 sites</span></label>
+                <label class="file-drop" for="url-file"><span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></span><span class="file-copy"><strong id="file-name">Choose a .txt file</strong><small>Drop it here or browse your files</small></span><span class="browse-button">Browse files</span><input id="url-file" type="file" accept=".txt,text/plain" required /></label>
+                <div class="batch-bottom"><span class="input-hint"><span class="hint-icon" aria-hidden="true">i</span> The selected scan mode controls whether linked pages are included.</span><button class="primary-button" type="submit"><svg class="primary-button-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M13.2 2 5.8 13h5l-.8 9L18.2 11h-5l.8-9Z"/></svg><span class="primary-button-label">Analyze list</span></button></div>
+              </form>
+            </section>
+
+            <div class="progress hidden" id="progress" aria-live="polite">
+              <div class="progress-summary"><div class="progress-label"><span class="spinner"></span><span id="progress-label">Resolving destination…</span></div><strong id="progress-percent">0%</strong></div>
+              <div class="progress-track" id="progress-meter" role="progressbar" aria-label="Scan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="progress-fill" id="progress-fill"></span></div>
+              <div class="progress-meta" id="progress-counter">0 / 1 pages scanned</div>
+              <ol class="progress-pages" id="progress-pages"></ol>
+            </div>
+            <div class="notice hidden" id="notice" role="status"></div>
+          </section>
+
+          <section class="results hidden" id="results" aria-live="polite">
+            <div class="results-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> ANALYSIS RESULTS</div><div class="results-title-row"><svg class="results-shield" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2.8 20 6v5.5c0 5.2-3.4 8.5-8 10.2-4.6-1.7-8-5-8-10.2V6l8-3.2Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg><h1 id="result-title">Scan results</h1><div id="scan-completion-status" class="scan-completion-status"><span class="completion-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.2 3 3 6-6.2"/></svg></span><span id="scan-completion-label">Scan completed</span><time id="scan-completed-at"></time></div></div></div><div class="results-actions"><div id="result-badge" class="result-badge"></div><button id="rescan-button" class="secondary-button" type="button"><svg class="button-icon rescan-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.7-4.3L3 9"/><path d="M3 4v5h5"/><path d="M4 13a8 8 0 0 0 14.7 4.3L21 15"/><path d="M21 20v-5h-5"/></svg><span>Rescan</span></button><button id="save-report-button" class="secondary-button" type="button" disabled><svg class="button-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 4.5h12v16l-6-3.8-6 3.8z"/></svg><span>Save report</span></button></div></div>
+            <div class="dashboard-warning hidden" id="dashboard-warning" role="status"></div>
+
+            <div class="summary-grid" aria-label="Scan summary">
+              <article class="summary-card"><span class="summary-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span><span class="summary-label">Website URL</span><a id="summary-url" class="summary-url-link" href="#" target="_blank" rel="noopener noreferrer"><span>—</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></a></article>
+              <article class="summary-card"><span class="summary-icon teal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="m3.5 7.2 8.5 5 8.5-5M12 12.2V22"/></svg></span><span class="summary-label">Detected packages</span><div class="summary-value-row"><strong id="summary-packages">—</strong><button class="summary-shortcut" type="button" data-open-tab="packages" aria-label="View detected packages" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div></article>
+              <article class="summary-card"><span class="summary-icon violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 1 1 6 0v3h4a2 2 0 0 1 2 2v3h-3a3 3 0 1 0 0 6h3v1a2 2 0 0 1-2 2h-5v-3a3 3 0 1 0-6 0v3H5a2 2 0 0 1-2-2v-5h3a3 3 0 1 0 0-6H3V9a2 2 0 0 1 2-2h4V4Z"/></svg></span><span class="summary-label">Detected plugins</span><div class="summary-value-row"><strong id="summary-plugins">—</strong><button class="summary-shortcut" type="button" data-open-tab="plugins" aria-label="View detected plugins" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div></article>
+              <article class="summary-card"><span class="summary-icon red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8 20 6v5.5c0 5.2-3.4 8.5-8 10.2-4.6-1.7-8-5-8-10.2V6l8-3.2Z"/><path d="M12 8v5m0 3h.01"/></svg></span><span class="summary-label">Vulnerabilities</span><div class="summary-value-row"><strong id="summary-vulnerabilities">—</strong><button class="summary-shortcut" type="button" data-open-tab="vulnerabilities" aria-label="View vulnerabilities" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div></article>
+            </div>
+
+            <div class="results-workspace">
+              <div class="results-primary">
+                <div class="result-tabs" role="tablist" aria-label="Scan result categories">
+                  <button class="result-tab active" type="button" role="tab" aria-selected="true" data-result-tab="sites"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>Scanned URLs</button>
+                  <button class="result-tab" type="button" role="tab" aria-selected="false" data-result-tab="packages"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="m3.5 7.2 8.5 5 8.5-5M12 12.2V22"/></svg>Packages</button>
+                  <button class="result-tab" type="button" role="tab" aria-selected="false" data-result-tab="plugins"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 4a3 3 0 1 1 6 0v3h4a2 2 0 0 1 2 2v3h-3a3 3 0 1 0 0 6h3v1a2 2 0 0 1-2 2h-5v-3a3 3 0 1 0-6 0v3H5a2 2 0 0 1-2-2v-5h3a3 3 0 1 0 0-6H3V9a2 2 0 0 1 2-2h4V4Z"/></svg>Plugins</button>
+                  <button class="result-tab" type="button" role="tab" aria-selected="false" data-result-tab="vulnerabilities"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2.8 20 6v5.5c0 5.2-3.4 8.5-8 10.2-4.6-1.7-8-5-8-10.2V6l8-3.2Z"/><path d="M12 8v5m0 3h.01"/></svg>Vulnerabilities</button>
+                  <button class="result-tab" type="button" role="tab" aria-selected="false" data-result-tab="technology"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>Technology</button>
+                </div>
+
+            <section class="results-table-card result-category" data-result-category="sites" aria-labelledby="sites-table-heading">
+              <div class="table-card-heading"><div><h2 id="sites-table-heading">Scanned URLs</h2><p>Framework, bundler, page, script, and asset coverage</p></div><span id="site-results-count" class="table-count"></span></div>
+              <div class="table-scroll"><table class="results-table"><thead><tr><th>Website URL</th><th>Framework</th><th>Bundler</th><th>Pages</th><th>Scripts</th><th>Assets</th><th>Packages</th><th>Status</th></tr></thead><tbody id="sites-table-body"></tbody></table></div>
+            </section>
+
+            <section class="results-table-card result-category hidden" data-result-category="technology" aria-labelledby="technology-table-heading">
+              <div class="table-card-heading"><div><h2 id="technology-table-heading">Technology stack</h2><p>Publicly observable CMS, CDN, WAF, frameworks, analytics, payments, and other services</p></div><span id="technology-results-count" class="table-count"></span></div>
+              <div class="table-scroll"><table class="results-table"><thead><tr><th>Website URL</th><th>Category</th><th>Technology</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody id="technology-table-body"></tbody></table></div>
+            </section>
+
+            <section class="results-table-card result-category hidden" data-result-category="packages" aria-labelledby="packages-table-heading">
+              <div class="table-card-heading"><div><h2 id="packages-table-heading">Detected packages</h2><p>Dependencies found across the scanned pages</p></div><span id="package-results-count" class="table-count"></span></div>
+              <div class="table-scroll"><table class="results-table package-results-table"><thead><tr><th>Website URL</th><th>Package</th><th>Version</th><th>Tier</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody id="package-table-body"></tbody></table></div>
+            </section>
+
+            <section class="results-table-card result-category hidden" data-result-category="plugins" aria-labelledby="plugins-table-heading">
+              <div class="table-card-heading"><div><h2 id="plugins-table-heading">Detected plugins and components</h2><p>WordPress plugins, themes, and core components identified from public evidence</p></div><span id="plugin-results-count" class="table-count">0 detected</span></div>
+              <div class="table-scroll"><table class="results-table package-results-table"><thead><tr><th>Website URL</th><th>Component</th><th>Version</th><th>Type</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody id="plugin-table-body"></tbody></table></div>
+            </section>
+
+            <section class="results-table-card result-category hidden" data-result-category="packages" aria-labelledby="leads-table-heading">
+              <div class="table-card-heading"><div><h2 id="leads-table-heading">Unverified package leads</h2><p>Package names found in public bundles or assets; these are leads, not confirmed installations or vulnerability matches</p></div><span id="package-leads-count" class="table-count"></span></div>
+              <div class="table-scroll"><table class="results-table"><thead><tr><th>Website URL</th><th>Candidate package</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody id="package-leads-body"></tbody></table></div>
+            </section>
+
+            <section class="results-table-card result-category hidden" data-result-category="vulnerabilities" aria-labelledby="vulnerability-table-heading">
+              <div class="table-card-heading"><div><h2 id="vulnerability-table-heading">Known vulnerabilities</h2><p>Version-aware advisories from OSV.dev and WPVulnerability</p></div><span id="vulnerability-results-count" class="table-count"></span></div>
+              <div class="table-scroll"><table class="results-table"><thead><tr><th>Package / component</th><th>Installed version</th><th>Severity</th><th>Advisory</th><th>Summary</th><th>Database match</th></tr></thead><tbody id="vulnerability-table-body"></tbody></table></div>
+            </section>
+
+            <div class="json-panel hidden"><div class="json-top"><div><span class="json-live"></span><strong id="json-title">JSON report</strong></div><div class="json-actions"><button class="text-button" id="copy-json" type="button">Copy JSON</button><button class="download-button hidden" id="download-json" type="button">↓ Download all results</button></div></div><pre id="json-output"></pre></div>
+
+            <details class="pages-summary hidden" id="pages-summary">
+              <summary class="pages-summary-heading"><span>Page locations</span><span id="pages-total" class="pages-total"></span></summary>
+              <div class="table-scroll"><table class="results-table"><thead><tr><th>Page URL</th><th>Title</th><th>Status</th></tr></thead><tbody id="pages-table-body"></tbody></table></div>
+            </details>
+              </div>
+              <aside class="insight-rail" aria-label="Scan overview">
+                <section class="insight-card risk-card"><span class="summary-icon red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8 20 6v5.5c0 5.2-3.4 8.5-8 10.2-4.6-1.7-8-5-8-10.2V6l8-3.2Z"/></svg></span><h2 id="risk-heading">Vulnerability overview</h2><p id="risk-summary">Run a scan to check detected versions against vulnerability databases.</p><button class="rail-link" type="button" data-open-tab="vulnerabilities">View vulnerabilities <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></section>
+                <section class="insight-card"><h2>Scan overview</h2><dl class="overview-list"><div><dt><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg><span>URLs scanned</span></dt><dd id="overview-urls">—</dd></div><div><dt><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="m3.5 7.2 8.5 5 8.5-5M12 12.2V22"/></svg><span>Packages detected</span></dt><dd id="overview-packages">—</dd></div><div><dt><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 4a3 3 0 1 1 6 0v3h4a2 2 0 0 1 2 2v3h-3a3 3 0 1 0 0 6h3v1a2 2 0 0 1-2 2h-5v-3a3 3 0 1 0-6 0v3H5a2 2 0 0 1-2-2v-5h3a3 3 0 1 0 0-6H3V9a2 2 0 0 1 2-2h4V4Z"/></svg><span>Plugins detected</span></dt><dd id="overview-plugins">—</dd></div><div><dt><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Scan type</span></dt><dd id="overview-mode">—</dd></div><div><dt><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg><span>Pages visited</span></dt><dd id="overview-pages">—</dd></div></dl><div class="risk-gauge" id="risk-gauge"><div class="risk-gauge-heading"><span>Site risk</span><strong id="risk-gauge-level">Not assessed</strong></div><svg class="risk-gauge-svg" id="risk-gauge-svg" viewBox="0 0 220 150" role="img" aria-label="Site risk not assessed"><defs><linearGradient id="risk-gauge-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#35d6a0"/><stop offset="34%" stop-color="#d5df66"/><stop offset="64%" stop-color="#ffb347"/><stop offset="100%" stop-color="#f45b68"/></linearGradient></defs><path class="risk-gauge-track" d="M24 112 A86 86 0 0 1 196 112"/><path class="risk-gauge-scale" d="M24 112 A86 86 0 0 1 196 112"/><path class="risk-gauge-tick" d="M24 112h10M49 51l8 8M110 26v11M171 51l-8 8M196 112h-10"/><g id="risk-gauge-needle" class="risk-gauge-needle" transform="rotate(-90 110 112)"><path d="M110 112V45"/><circle cx="110" cy="112" r="5"/></g><g class="risk-gauge-labels" aria-hidden="true"><text x="19" y="137" text-anchor="start">GOOD</text><text x="52" y="75" text-anchor="middle">LOW</text><text x="110" y="45" text-anchor="middle">MEDIUM</text><text x="168" y="75" text-anchor="middle">HIGH</text><text x="201" y="137" text-anchor="end">HIGH RISK</text></g></svg><p class="risk-gauge-caption" id="risk-gauge-caption">Risk level is shown when vulnerability severity data is available.</p></div></section>
+                <section class="insight-card stack-card"><h2>Technology stack</h2><div id="stack-chips" class="stack-chips"><span>Awaiting scan results</span></div></section>
+              </aside>
+            </div>
+          </section>
+
+          <footer><span>WEBSCAN <span class="footer-dot">·</span> WEBSITE SECURITY INTELLIGENCE</span><a href="/saved">Open saved scans <span aria-hidden="true">↗</span></a></footer>
+        </main>
+      </div>
+    </div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

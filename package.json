@@ -1,0 +1,113 @@
+{
+  "name": "debun-plus",
+  "version": "1.2.3",
+  "description": "Infer npm packages, versions, and transitive dependencies from production JavaScript bundles using debun-cli and registry-backed AST fingerprints.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "page-deps": "bin/page-deps.js",
+    "debun-plus": "bin/debun-plus.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "npm run build && node bin/page-deps.js",
+    "analyze": "npm run build && node bin/page-deps.js",
+    "web": "npm run build && node src/web-server.js",
+    "desktop": "electron electron/main.cjs",
+    "desktop:build": "npm run build && node scripts/rebuild-electron-native.js && electron-builder --win nsis && npm rebuild better-sqlite3",
+    "registry:smoke": "npm run build && node scripts/registry-smoke.js",
+    "eval:fixtures": "npm run build && node scripts/build-eval-fixtures.mjs",
+    "eval": "npm run build && node bin/debun-plus.js eval --bundles test/evaluation/bundles --ground-truth test/evaluation/truth.json --offline --database test/evaluation/cache.sqlite --output EVAL-REPORT.md --json-output test/evaluation/results.json",
+    "build": "tsc -p tsconfig.json && node scripts/copy-runtime-data.mjs",
+    "refresh-fixtures": "node scripts/refresh-fixtures.mjs",
+    "prepack": "npm run build",
+    "test": "npm run build && vitest run test/phase0.test.ts test/registry-client.test.ts test/literal-index.test.ts test/signals.test.ts test/scoring.test.ts test/transitive.test.ts test/evaluation.test.ts test/report.test.ts test/crawl.test.ts && node --test \"test/**/*.test.js\""
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    "patterns",
+    "README.md"
+  ],
+  "dependencies": {
+    "@babel/parser": "^7.29.9",
+    "@mdream/crawl": "^2.0.3",
+    "axios": "^1.7.9",
+    "better-sqlite3": "^12.11.1",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0",
+    "commander": "^12.1.0",
+    "crawlee": "^3.18.2",
+    "debun-cli": "^1.0.6",
+    "oxc-parser": "^0.80.0",
+    "playwright": "^1.64.1",
+    "terser": "^5.51.2"
+  },
+  "keywords": [
+    "dependencies",
+    "package-detection",
+    "npm",
+    "bundler",
+    "fingerprinting",
+    "debun",
+    "sca"
+  ],
+  "devDependencies": {
+    "electron": "^35.1.2",
+    "electron-builder": "^26.15.3",
+    "typescript": "^7.0.2",
+    "undici": "^6.29.1",
+    "vitest": "^3.2.7"
+  },
+  "build": {
+    "appId": "com.debunplus.desktop",
+    "productName": "Debun Plus",
+    "npmRebuild": false,
+    "directories": {
+      "output": "artifacts/electron"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "asar": true,
+    "files": [
+      "electron/**/*",
+      "bin/**/*",
+      "src/**/*",
+      "dist/**/*",
+      "patterns/**/*",
+      "web/**/*",
+      "assets/Futuristic Blue Networked Earth.png",
+      "assets/Glowing Blue Wireframe Mountains.png",
+      "ico.ico",
+      "package.json",
+      "!test/**/*",
+      "!scripts/**/*",
+      "!storage/**/*"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.cjs"
+    },
+    "win": {
+      "icon": "ico.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "ico.ico",
+      "uninstallerIcon": "ico.ico"
+    }
+  }
+}

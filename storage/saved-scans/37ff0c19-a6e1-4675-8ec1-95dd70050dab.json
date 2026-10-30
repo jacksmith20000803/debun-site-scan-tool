@@ -1,0 +1,447 @@
+{
+  "id": "37ff0c19-a6e1-4675-8ec1-95dd70050dab",
+  "createdAt": "2026-10-23T07:35:29.913Z",
+  "url": "https://example.com/",
+  "finalUrl": "https://example.com/",
+  "framework": "unknown",
+  "bundler": "unknown",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 5,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://example.com/",
+    "finalUrl": "https://example.com/",
+    "framework": "unknown",
+    "bundler": "unknown",
+    "pagesScanned": 1,
+    "totalDependencies": 5,
+    "dependencies": [
+      {
+        "name": "@angular/core",
+        "version": "unknown"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "version": "unknown"
+      },
+      {
+        "name": "bootstrap",
+        "version": "unknown"
+      },
+      {
+        "name": "ionicons",
+        "version": "unknown"
+      },
+      {
+        "name": "jquery",
+        "version": "unknown"
+      }
+    ],
+    "vulnerabilities": [],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://example.com/",
+    "finalUrl": "https://example.com/",
+    "scanMode": "shallow",
+    "fetchedAt": "2026-10-23T07:35:29.913Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "unknown",
+    "bundler": "unknown",
+    "dashboardScan": {
+      "websiteUrl": "https://example.com/",
+      "finalUrl": "https://example.com/",
+      "title": "Example Domain",
+      "status": 200,
+      "framework": "unknown",
+      "bundler": "unknown",
+      "detectionReason": "The rendered page did not expose recognizable framework or bundler markers.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://example.com/",
+      "finalUrl": "https://example.com/",
+      "framework": "unknown",
+      "bundler": "unknown",
+      "pagesScanned": 1,
+      "totalDependencies": 5,
+      "dependencies": [
+        {
+          "name": "@angular/core",
+          "version": "unknown"
+        },
+        {
+          "name": "@sveltejs/kit",
+          "version": "unknown"
+        },
+        {
+          "name": "bootstrap",
+          "version": "unknown"
+        },
+        {
+          "name": "ionicons",
+          "version": "unknown"
+        },
+        {
+          "name": "jquery",
+          "version": "unknown"
+        }
+      ],
+      "vulnerabilities": [],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 1,
+      "maxDepth": 0,
+      "maxLinksPerPage": 0,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://example.com/",
+        "finalUrl": "https://example.com/",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Example Domain",
+        "framework": "unknown",
+        "bundler": "unknown",
+        "frameworkReason": "The rendered page did not expose recognizable framework or bundler markers.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 5,
+        "errors": [],
+        "packageNames": [
+          "@angular/core",
+          "@sveltejs/kit",
+          "bootstrap",
+          "ionicons",
+          "jquery"
+        ]
+      }
+    ],
+    "initialPackages": [
+      {
+        "name": "@angular/core",
+        "rawNames": [
+          "@angular/core"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 9 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 9 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 10 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 13 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 11 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      }
+    ],
+    "newlyDiscovered": [],
+    "packageCount": 5,
+    "packages": [
+      {
+        "name": "@angular/core",
+        "rawNames": [
+          "@angular/core"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 9 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://example.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 9 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://example.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 10 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://example.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 13 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://example.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 11 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://example.com/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

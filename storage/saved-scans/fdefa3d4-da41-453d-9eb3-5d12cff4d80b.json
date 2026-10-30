@@ -1,0 +1,218 @@
+{
+  "id": "fdefa3d4-da41-453d-9eb3-5d12cff4d80b",
+  "createdAt": "2026-10-23T15:31:24.590Z",
+  "url": "http://127.0.0.1:4173/saved",
+  "finalUrl": "http://127.0.0.1:4173/saved",
+  "framework": "unknown",
+  "bundler": "unknown",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 0,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "http://127.0.0.1:4173/saved",
+    "finalUrl": "http://127.0.0.1:4173/saved",
+    "framework": "unknown",
+    "bundler": "unknown",
+    "technologies": [],
+    "packageLeads": [
+      {
+        "name": "bootstrap",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 82 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "http://127.0.0.1:4173/saved"
+        ]
+      },
+      {
+        "name": "ionicons",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 84 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "http://127.0.0.1:4173/saved"
+        ]
+      }
+    ],
+    "assetsDiscovered": 4,
+    "scriptsDiscovered": 1,
+    "pagesScanned": 1,
+    "totalDependencies": 0,
+    "dependencies": [],
+    "vulnerabilities": [],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "http://127.0.0.1:4173/saved",
+    "finalUrl": "http://127.0.0.1:4173/saved",
+    "scanMode": "shallow",
+    "fetchedAt": "2026-10-23T15:31:24.590Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "unknown",
+    "bundler": "unknown",
+    "technologyStack": [],
+    "assetsDiscovered": 4,
+    "scriptsDiscovered": 1,
+    "dashboardScan": {
+      "websiteUrl": "http://127.0.0.1:4173/saved",
+      "finalUrl": "http://127.0.0.1:4173/saved",
+      "title": "Saved scans · WebScan",
+      "status": 200,
+      "framework": "unknown",
+      "bundler": "unknown",
+      "technologyStack": [],
+      "assetsDiscovered": 4,
+      "scriptsDiscovered": 1,
+      "detectionReason": "The rendered page did not expose recognizable framework or bundler markers.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "http://127.0.0.1:4173/saved",
+      "finalUrl": "http://127.0.0.1:4173/saved",
+      "framework": "unknown",
+      "bundler": "unknown",
+      "technologies": [],
+      "packageLeads": [
+        {
+          "name": "bootstrap",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 82 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "http://127.0.0.1:4173/saved"
+          ]
+        },
+        {
+          "name": "ionicons",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 84 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "http://127.0.0.1:4173/saved"
+          ]
+        }
+      ],
+      "assetsDiscovered": 4,
+      "scriptsDiscovered": 1,
+      "pagesScanned": 1,
+      "totalDependencies": 0,
+      "dependencies": [],
+      "vulnerabilities": [],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 1,
+      "maxDepth": 0,
+      "maxLinksPerPage": 0,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "http://127.0.0.1:4173/saved",
+        "finalUrl": "http://127.0.0.1:4173/saved",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Saved scans · WebScan",
+        "framework": "unknown",
+        "bundler": "unknown",
+        "frameworkReason": "The rendered page did not expose recognizable framework or bundler markers.",
+        "technologyStack": [],
+        "assetsDiscovered": 4,
+        "scriptsDiscovered": 1,
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 0,
+        "packageLeads": [
+          {
+            "name": "bootstrap",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 82 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "ionicons",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 84 bundle signatures"
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "packageNames": []
+      }
+    ],
+    "initialPackages": [],
+    "newlyDiscovered": [],
+    "packageCount": 0,
+    "packages": [],
+    "packageLeads": [
+      {
+        "name": "bootstrap",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 82 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "http://127.0.0.1:4173/saved"
+        ]
+      },
+      {
+        "name": "ionicons",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 84 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "http://127.0.0.1:4173/saved"
+        ]
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

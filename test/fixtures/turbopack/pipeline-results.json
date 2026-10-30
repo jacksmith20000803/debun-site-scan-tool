@@ -1,0 +1,275 @@
+{
+  "stats": {
+    "bundlesNormalized": 24,
+    "moduleSlices": 1346,
+    "fingerprintSlices": 203,
+    "candidatesGenerated": 6,
+    "versionsCompared": 0,
+    "registryRequests": 10,
+    "cacheHits": 0
+  },
+  "bundleFormats": [
+    {
+      "sourceFile": "0cz1d0mv5g_q7.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 29 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "0r-yur70-ku2o.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 107 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "0umf92h1sb77c.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 15 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "2khxl0v1q4i6n.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 23 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "2qb6b1-i-4k8s.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.81,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 2 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "3cfn99dbrcvvp.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 10 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "turbopack-3-ry682tkyiqk.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 7 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "01ast19o69_80.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 10 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "0558he_v2ecwd.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 107 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "07ov30en6-u9o.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 22 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "0cz1d0mv5g_q7.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 29 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "0umf92h1sb77c.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.95,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 15 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "2qb6b1-i-4k8s.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.81,
+      "hints": [
+        "turbopack"
+      ],
+      "evidence": [
+        "registration-array with 2 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "turbopack-2ycxb3unfd7ar.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 7 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "esbuild-01.js",
+      "bundleFormat": "unrecognized(unknown)",
+      "confidence": 0.42,
+      "hints": [],
+      "evidence": [
+        "top-level declaration or lazy function slices"
+      ]
+    },
+    {
+      "sourceFile": "esbuild-02.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "esbuild-03.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "rollup-01.js",
+      "bundleFormat": "unrecognized(unknown)",
+      "confidence": 0.42,
+      "hints": [],
+      "evidence": [
+        "top-level declaration or lazy function slices"
+      ]
+    },
+    {
+      "sourceFile": "rollup-02.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "vite-01.js",
+      "bundleFormat": "unrecognized(unknown)",
+      "confidence": 0.42,
+      "hints": [],
+      "evidence": [
+        "top-level declaration or lazy function slices"
+      ]
+    },
+    {
+      "sourceFile": "vite-02.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "webpack-01.js",
+      "bundleFormat": "unrecognized(unknown)",
+      "confidence": 0.42,
+      "hints": [],
+      "evidence": [
+        "top-level declaration or lazy function slices"
+      ]
+    },
+    {
+      "sourceFile": "webpack-02.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    },
+    {
+      "sourceFile": "webpack-03.js",
+      "bundleFormat": "recognized(module-registry)",
+      "confidence": 0.92,
+      "hints": [],
+      "evidence": [
+        "function-record with 12 callable entries",
+        "repeated executable factory structure"
+      ]
+    }
+  ],
+  "packageCandidates": [
+    "next",
+    "react",
+    "jquery",
+    "lodash"
+  ]
+}

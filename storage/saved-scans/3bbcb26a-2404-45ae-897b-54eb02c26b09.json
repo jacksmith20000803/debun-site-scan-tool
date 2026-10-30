@@ -1,0 +1,1210 @@
+{
+  "id": "3bbcb26a-2404-45ae-897b-54eb02c26b09",
+  "createdAt": "2026-10-18T13:43:46.720Z",
+  "url": "https://dupe.fi/",
+  "finalUrl": "https://dupe.fi/",
+  "framework": "next.js",
+  "bundler": "turbopack",
+  "pagesScanned": 7,
+  "pageCount": 7,
+  "dependencyCount": 10,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://dupe.fi/",
+    "finalUrl": "https://dupe.fi/",
+    "framework": "next.js",
+    "bundler": "turbopack",
+    "pagesScanned": 7,
+    "totalDependencies": 10,
+    "dependencies": [
+      {
+        "name": "core-js",
+        "version": "3.47.0"
+      },
+      {
+        "name": "@chakra-ui/react",
+        "version": "unknown"
+      },
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "version": "unknown"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "version": "unknown"
+      },
+      {
+        "name": "bootstrap",
+        "version": "unknown"
+      },
+      {
+        "name": "fuse.js",
+        "version": "unknown"
+      },
+      {
+        "name": "ionicons",
+        "version": "unknown"
+      },
+      {
+        "name": "jquery",
+        "version": "unknown"
+      },
+      {
+        "name": "next",
+        "version": "unknown"
+      },
+      {
+        "name": "react",
+        "version": "unknown"
+      }
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://dupe.fi/",
+    "finalUrl": "https://dupe.fi/",
+    "fetchedAt": "2026-10-18T13:43:46.719Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "next.js",
+    "bundler": "turbopack",
+    "dashboardScan": {
+      "websiteUrl": "https://dupe.fi/",
+      "finalUrl": "https://dupe.fi/",
+      "title": "Dupe.fi | Trade CS2 Skins & S&box Items for USDC",
+      "status": 200,
+      "framework": "next.js",
+      "bundler": "turbopack",
+      "detectionReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://dupe.fi/",
+      "finalUrl": "https://dupe.fi/",
+      "framework": "next.js",
+      "bundler": "turbopack",
+      "pagesScanned": 7,
+      "totalDependencies": 10,
+      "dependencies": [
+        {
+          "name": "core-js",
+          "version": "3.47.0"
+        },
+        {
+          "name": "@chakra-ui/react",
+          "version": "unknown"
+        },
+        {
+          "name": "@fortawesome/fontawesome-free",
+          "version": "unknown"
+        },
+        {
+          "name": "@sveltejs/kit",
+          "version": "unknown"
+        },
+        {
+          "name": "bootstrap",
+          "version": "unknown"
+        },
+        {
+          "name": "fuse.js",
+          "version": "unknown"
+        },
+        {
+          "name": "ionicons",
+          "version": "unknown"
+        },
+        {
+          "name": "jquery",
+          "version": "unknown"
+        },
+        {
+          "name": "next",
+          "version": "unknown"
+        },
+        {
+          "name": "react",
+          "version": "unknown"
+        }
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 7,
+      "linksDiscovered": 67,
+      "pagesQueued": 14,
+      "maxPages": 25,
+      "maxDepth": 1,
+      "maxLinksPerPage": 24,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://dupe.fi/",
+        "finalUrl": "https://dupe.fi/",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 15,
+        "title": "Dupe.fi | Trade CS2 Skins & S&box Items for USDC",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/market/cs2",
+        "finalUrl": "https://dupe.fi/market/cs2",
+        "depth": 1,
+        "status": 200,
+        "linksFound": 24,
+        "title": "CS2 Marketplace | Buy and Sell CS2 Skins on Dupe",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/market/cs2/item/",
+        "finalUrl": "https://dupe.fi/market/cs2/item/",
+        "depth": 1,
+        "status": 404,
+        "linksFound": 0,
+        "title": "404: This page could not be found",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "core-js",
+          "@chakra-ui/react",
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+        "finalUrl": "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+        "depth": 1,
+        "status": 200,
+        "linksFound": 11,
+        "title": "Sticker | Falcons (Holo) | Budapest 2025 CS2 Price & Listings | Dupe",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/market/sbox",
+        "finalUrl": "https://dupe.fi/market/sbox",
+        "depth": 1,
+        "status": 200,
+        "linksFound": 24,
+        "title": "Sbox Marketplace – Buy & Sell S&box Skins | Dupe",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/guides",
+        "finalUrl": "https://dupe.fi/guides",
+        "depth": 1,
+        "status": 200,
+        "linksFound": 24,
+        "title": "Dupe Guides | Marketplace Help and Tutorials",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      },
+      {
+        "url": "https://dupe.fi/app",
+        "finalUrl": "https://dupe.fi/app",
+        "depth": 1,
+        "status": 200,
+        "linksFound": 11,
+        "title": "Dupe App | Mobile CS2 & S&box Trading",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack bundler markers were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 8,
+        "errors": [],
+        "packageNames": [
+          "@fortawesome/fontawesome-free",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "next",
+          "react"
+        ]
+      }
+    ],
+    "initialPackages": [
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "rawNames": [
+          "@fortawesome/fontawesome-free"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 262 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 342 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 402 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "fuse.js",
+        "rawNames": [
+          "fuse.js"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 223 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 551 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 464 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "next",
+        "rawNames": [
+          "next"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: next; Next.js runtime read; Next.js framework runtime data/read marker; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.086, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 431 bundle signatures"
+          }
+        ]
+      }
+    ],
+    "newlyDiscovered": [
+      {
+        "name": "core-js",
+        "rawNames": [
+          "core-js"
+        ],
+        "version": "3.47.0",
+        "versionIsExact": true,
+        "confidence": 0.78,
+        "tier": "medium",
+        "signals": [
+          "debun-likely",
+          "debun-range",
+          "registry-possible"
+        ],
+        "families": [
+          "debun",
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [
+          "3.46.0",
+          "3.45.1",
+          "3.45.0"
+        ],
+        "versionCandidates": [
+          {
+            "version": "3.47.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.46.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.45.1",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.45.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.44.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.43.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.42.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.41.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.40.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.39.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.38.1",
+            "weight": 0.72,
+            "votes": 2,
+            "exact": true
+          }
+        ],
+        "evidence": [
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.47.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.38.1"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.39.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.40.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.41.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.42.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.43.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.44.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.45.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.45.1"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.46.0"
+          },
+          {
+            "signal": "debun-likely",
+            "detail": "debun POG match (likely) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.38.1"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.051, margin 0.000); debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/market/cs2/item/"
+        ],
+        "pagesFound": 1
+      },
+      {
+        "name": "@chakra-ui/react",
+        "rawNames": [
+          "@chakra-ui/react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); Chakra UI class; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/market/cs2/item/"
+        ],
+        "pagesFound": 1
+      }
+    ],
+    "packageCount": 10,
+    "packages": [
+      {
+        "name": "core-js",
+        "rawNames": [
+          "core-js"
+        ],
+        "version": "3.47.0",
+        "versionIsExact": true,
+        "confidence": 0.78,
+        "tier": "medium",
+        "signals": [
+          "debun-likely",
+          "debun-range",
+          "registry-possible"
+        ],
+        "families": [
+          "debun",
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [
+          "3.46.0",
+          "3.45.1",
+          "3.45.0"
+        ],
+        "versionCandidates": [
+          {
+            "version": "3.47.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.46.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.45.1",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.45.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.44.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.43.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.42.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.41.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.40.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.39.0",
+            "weight": 0.72,
+            "votes": 1,
+            "exact": true
+          },
+          {
+            "version": "3.38.1",
+            "weight": 0.72,
+            "votes": 2,
+            "exact": true
+          }
+        ],
+        "evidence": [
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.47.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.38.1"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.39.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.40.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.41.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.42.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.43.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.44.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.45.0"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.45.1"
+          },
+          {
+            "signal": "debun-range",
+            "detail": "debun POG match (range) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.46.0"
+          },
+          {
+            "signal": "debun-likely",
+            "detail": "debun POG match (likely) in https://dupe.fi/_next/static/chunks/03~yq9q893hmn.js",
+            "version": "3.38.1"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.051, margin 0.000); debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate; debun-cli Property-Order-Graph candidate"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/market/cs2/item/"
+        ],
+        "pagesFound": 1
+      },
+      {
+        "name": "@chakra-ui/react",
+        "rawNames": [
+          "@chakra-ui/react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); Chakra UI class; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/market/cs2/item/"
+        ],
+        "pagesFound": 1
+      },
+      {
+        "name": "@fortawesome/fontawesome-free",
+        "rawNames": [
+          "@fortawesome/fontawesome-free"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 262 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 295 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 342 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 387 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 402 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 416 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      },
+      {
+        "name": "fuse.js",
+        "rawNames": [
+          "fuse.js"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 223 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 293 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 551 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 6
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 464 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 6
+      },
+      {
+        "name": "next",
+        "rawNames": [
+          "next"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: next; Next.js runtime read; Next.js framework runtime data/read marker; registry corpus version fingerprints were unavailable for comparison"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: next; Next.js runtime read; version property; Next.js framework runtime data/read marker; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.086, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 431 bundle signatures"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.110, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 420 bundle signatures"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.138, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 341 bundle signatures"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.085, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 420 bundle signatures"
+          },
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.086, margin 0.000); React runtime global; version property; React runtime global read; SQLite inverted feature index matched 420 bundle signatures"
+          }
+        ],
+        "foundOn": [
+          "https://dupe.fi/",
+          "https://dupe.fi/market/cs2",
+          "https://dupe.fi/market/cs2/item/",
+          "https://dupe.fi/market/cs2/item/sticker-falcons-holo-budapest-2025",
+          "https://dupe.fi/market/sbox",
+          "https://dupe.fi/guides",
+          "https://dupe.fi/app"
+        ],
+        "pagesFound": 7
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

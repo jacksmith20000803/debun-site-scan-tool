@@ -1,0 +1,54 @@
+{
+  "websiteUrl": "https://unusualwhales.com/",
+  "finalUrl": "https://unusualwhales.com/",
+  "framework": "next.js",
+  "bundler": "webpack",
+  "pagesScanned": 15,
+  "totalDependencies": 11,
+  "dependencies": [
+    {
+      "name": "core-js",
+      "version": "3.6.5"
+    },
+    {
+      "name": "ionicons",
+      "version": "7.1.0"
+    },
+    {
+      "name": "lodash",
+      "version": "4.17.23"
+    },
+    {
+      "name": "fuse.js",
+      "version": "3.4.3"
+    },
+    {
+      "name": "@angular/core",
+      "version": "unknown"
+    },
+    {
+      "name": "@fortawesome/fontawesome-free",
+      "version": "unknown"
+    },
+    {
+      "name": "@mui/material",
+      "version": "unknown"
+    },
+    {
+      "name": "bootstrap",
+      "version": "unknown"
+    },
+    {
+      "name": "jquery",
+      "version": "unknown"
+    },
+    {
+      "name": "next",
+      "version": "unknown"
+    },
+    {
+      "name": "react",
+      "version": "unknown"
+    }
+  ]
+}

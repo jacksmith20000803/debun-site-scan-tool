@@ -1,0 +1,9 @@
+{
+  "name": "debun-plus-eval-esbuild-03",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "lodash": "4.18.1",
+    "jquery": "3.7.1"
+  }
+}

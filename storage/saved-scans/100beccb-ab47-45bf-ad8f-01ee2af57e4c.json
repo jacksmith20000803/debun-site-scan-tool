@@ -1,0 +1,469 @@
+{
+  "id": "100beccb-ab47-45bf-ad8f-01ee2af57e4c",
+  "createdAt": "2026-10-28T16:08:44.218Z",
+  "url": "https://example.com/",
+  "finalUrl": "https://example.com/",
+  "framework": "unknown",
+  "bundler": "unknown",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 0,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://example.com/",
+    "finalUrl": "https://example.com/",
+    "framework": "unknown",
+    "bundler": "unknown",
+    "technologies": [
+      {
+        "category": "CDN",
+        "name": "Cloudflare",
+        "confidence": 0.99,
+        "evidence": [
+          "cf-cache-status: HIT",
+          "cf-ray: a51b3303aab772e6-BOS",
+          "server: cloudflare"
+        ]
+      }
+    ],
+    "packageLeads": [
+      {
+        "name": "@angular/core",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 9 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 9 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 10 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "fuse.js",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 8 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "ionicons",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 13 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "jquery",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 11 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      }
+    ],
+    "assetsDiscovered": 2,
+    "scriptsDiscovered": 1,
+    "pagesScanned": 1,
+    "totalDependencies": 0,
+    "dependencies": [],
+    "vulnerabilities": [],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://example.com/",
+    "finalUrl": "https://example.com/",
+    "scanMode": "deep",
+    "fetchedAt": "2026-10-28T16:08:44.217Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "unknown",
+    "bundler": "unknown",
+    "technologyStack": [
+      {
+        "category": "CDN",
+        "name": "Cloudflare",
+        "confidence": 0.99,
+        "evidence": [
+          "cf-cache-status: HIT",
+          "cf-ray: a51b3303aab772e6-BOS",
+          "server: cloudflare"
+        ]
+      }
+    ],
+    "assetsDiscovered": 2,
+    "scriptsDiscovered": 1,
+    "dashboardScan": {
+      "websiteUrl": "https://example.com/",
+      "finalUrl": "https://example.com/",
+      "title": "Example Domain",
+      "status": 200,
+      "framework": "unknown",
+      "bundler": "unknown",
+      "technologyStack": [
+        {
+          "category": "CDN",
+          "name": "Cloudflare",
+          "confidence": 0.99,
+          "evidence": [
+            "cf-cache-status: HIT",
+            "cf-ray: a51b3303aab772e6-BOS",
+            "server: cloudflare"
+          ]
+        }
+      ],
+      "assetsDiscovered": 2,
+      "scriptsDiscovered": 1,
+      "detectionReason": "The rendered page did not expose recognizable framework or bundler markers.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://example.com/",
+      "finalUrl": "https://example.com/",
+      "framework": "unknown",
+      "bundler": "unknown",
+      "technologies": [
+        {
+          "category": "CDN",
+          "name": "Cloudflare",
+          "confidence": 0.99,
+          "evidence": [
+            "cf-cache-status: HIT",
+            "cf-ray: a51b3303aab772e6-BOS",
+            "server: cloudflare"
+          ]
+        }
+      ],
+      "packageLeads": [
+        {
+          "name": "@angular/core",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 9 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        },
+        {
+          "name": "@sveltejs/kit",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 9 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        },
+        {
+          "name": "bootstrap",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 10 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        },
+        {
+          "name": "fuse.js",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 8 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        },
+        {
+          "name": "ionicons",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 13 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        },
+        {
+          "name": "jquery",
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 11 bundle signatures"
+            }
+          ],
+          "pagesSeen": [
+            "https://example.com/"
+          ]
+        }
+      ],
+      "assetsDiscovered": 2,
+      "scriptsDiscovered": 1,
+      "pagesScanned": 1,
+      "totalDependencies": 0,
+      "dependencies": [],
+      "vulnerabilities": [],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 25,
+      "maxDepth": 1,
+      "maxLinksPerPage": 24,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://example.com/",
+        "finalUrl": "https://example.com/",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Example Domain",
+        "framework": "unknown",
+        "bundler": "unknown",
+        "frameworkReason": "The rendered page did not expose recognizable framework or bundler markers.",
+        "technologyStack": [
+          {
+            "category": "CDN",
+            "name": "Cloudflare",
+            "confidence": 0.99,
+            "evidence": [
+              "cf-cache-status: HIT",
+              "cf-ray: a51b3303aab772e6-BOS",
+              "server: cloudflare"
+            ]
+          }
+        ],
+        "assetsDiscovered": 2,
+        "scriptsDiscovered": 1,
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 0,
+        "packageLeads": [
+          {
+            "name": "@angular/core",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 9 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "@sveltejs/kit",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 9 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "bootstrap",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 10 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "fuse.js",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 8 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "ionicons",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 13 bundle signatures"
+              }
+            ]
+          },
+          {
+            "name": "jquery",
+            "confidence": 0.35,
+            "evidence": [
+              {
+                "source": "ast-property",
+                "detail": "SQLite inverted feature index matched 11 bundle signatures"
+              }
+            ]
+          }
+        ],
+        "errors": [],
+        "packageNames": []
+      }
+    ],
+    "initialPackages": [],
+    "newlyDiscovered": [],
+    "packageCount": 0,
+    "packages": [],
+    "packageLeads": [
+      {
+        "name": "@angular/core",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 9 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 9 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 10 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "fuse.js",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 8 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "ionicons",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 13 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      },
+      {
+        "name": "jquery",
+        "confidence": 0.35,
+        "evidence": [
+          {
+            "source": "ast-property",
+            "detail": "SQLite inverted feature index matched 11 bundle signatures"
+          }
+        ],
+        "pagesSeen": [
+          "https://example.com/"
+        ]
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

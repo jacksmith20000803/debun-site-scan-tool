@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "file": "app.bundle.js",
+  "sources": [
+    "webpack://my-app/./node_modules/axios/index.js",
+    "webpack://my-app/./node_modules/lodash/lodash.js",
+    "webpack://my-app/./node_modules/react/package.json"
+  ],
+  "sourcesContent": [
+    null,
+    null,
+    "{\"name\":\"react\",\"version\":\"18.3.1\"}"
+  ],
+  "mappings": "AAAA"
+}

@@ -1,0 +1,1822 @@
+{
+  "id": "38f43072-24e5-4f6c-8799-3e993236c1b7",
+  "createdAt": "2026-10-23T07:31:46.144Z",
+  "url": "https://wordpress.org/",
+  "finalUrl": "https://wordpress.org/",
+  "framework": "unknown",
+  "bundler": "unknown",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 15,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://wordpress.org/",
+    "finalUrl": "https://wordpress.org/",
+    "framework": "unknown",
+    "bundler": "unknown",
+    "pagesScanned": 1,
+    "totalDependencies": 15,
+    "dependencies": [
+      {
+        "name": "wp-emoji-release.min",
+        "version": "7.2-beta1-64681"
+      },
+      {
+        "name": "@angular/core",
+        "version": "unknown"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "version": "unknown"
+      },
+      {
+        "name": "bootstrap",
+        "version": "unknown"
+      },
+      {
+        "name": "fuse.js",
+        "version": "unknown"
+      },
+      {
+        "name": "ionicons",
+        "version": "unknown"
+      },
+      {
+        "name": "jquery",
+        "version": "unknown"
+      },
+      {
+        "name": "gutenberg",
+        "version": "unknown"
+      },
+      {
+        "name": "wordpress",
+        "version": "7.2"
+      },
+      {
+        "name": "wporg-main-2022",
+        "version": "unknown"
+      },
+      {
+        "name": "wporg-parent-2021",
+        "version": "unknown"
+      },
+      {
+        "name": "wordpress",
+        "version": "7.2"
+      },
+      {
+        "name": "gutenberg",
+        "version": "unknown"
+      },
+      {
+        "name": "wporg-parent-2021",
+        "version": "unknown"
+      },
+      {
+        "name": "wporg-main-2022",
+        "version": "unknown"
+      }
+    ],
+    "vulnerabilities": [
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability",
+        "aliases": [
+          "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability"
+        ],
+        "summary": "Stored Cross-Site Scripting (XSS) vulnerability discovered by Ben Bidner in WordPress Gutenberg plugin (versions <= 12.7.1).",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "12.7.2",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "12.7.2",
+        "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-7-1-stored-cross-site-scripting-xss-vulnerability",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "CVE-2022-33994",
+        "aliases": [
+          "CVE-2022-33994",
+          "WordPress Gutenberg plugin <= 13.7.3 - Authenticated Stored Cross-Site Scripting (XSS) vulnerability",
+          "404 Page Not Found"
+        ],
+        "summary": "The Gutenberg plugin through 13.7.3 for WordPress allows stored XSS by the Contributor role via an SVG document to the \"Insert from URL\" feature. NOTE: the XSS payload does not execute in the context of the WordPress instance's domain; however, analogous attempts by low-privileged users to reference SVG documents are blocked by some similar products, and this behavioral difference might have security relevance to some WordPress site administrators.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "17.3.0",
+          "max_operator": "le",
+          "unfixed": "1",
+          "closed": "0"
+        },
+        "fixed": "17.3.0",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2022-33994",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities",
+        "aliases": [
+          "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities"
+        ],
+        "summary": "Multiple Stored Cross-Site Scripting (XSS) vulnerabilities via Search, Feature Image, RSS, and Widget blocks were discovered by Alex Concha (WP Security team) and a third-party audit in the WordPress Gutenberg plugin (versions <= 14.3.1).\nUpdate the WordPress Gutenberg plugin to the latest available version (at least 14.3.1).",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "14.3.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "14.3.1",
+        "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-14-3-0-multiple-stored-cross-site-scripting-xss-vulnerabilities",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "CVE-2022-43500",
+        "aliases": [
+          "WordPress Core < 6.0.3 & Gutenberg < 14.3.1 - Authenticated Cross-Site Scripting in Various Blocks",
+          "CVE-2022-43500"
+        ],
+        "summary": "[en] Cross-site scripting vulnerability in WordPress versions prior to 6.0.3 allows a remote unauthenticated attacker to inject an arbitrary script. The developer also provides new patched releases for all versions since 3.7.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "14.3.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "14.3.1",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2022-43500",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor",
+        "aliases": [
+          "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor"
+        ],
+        "summary": "WordPress Core in various versions < 5.9.2 and Gutenberg versions less than 12.7.2 are vulnerable to prototype pollution via the block editor which could make injecting malicious web scripts possible in some cases.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "12.7.2",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "12.7.2",
+        "url": "https://www.wordfence.com/threat-intel/vulnerabilities/detail/wordpress-core-592-gutenberg-1272-prototype-pollution-via-block-editor",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "Gutenberg &lt; 14.3.1 - Multiple Stored XSS",
+        "aliases": [
+          "Gutenberg &lt; 14.3.1 - Multiple Stored XSS"
+        ],
+        "summary": "The plugin does not escape data from some blocks before outputting ti back in pages, which could lead to Stored XSS issues.\r\n\r\nAffected blocks: Search, Feature Image, RSS and Widget",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "14.3.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "14.3.1",
+        "url": "https://wpscan.com/vulnerability/17d969e8-058e-4679-8594-bae605341fb8",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "CVE-2023-38000",
+        "aliases": [
+          "CVE-2023-38000",
+          "WordPress  Gutenberg Plugin  <= 16.8.0 is vulnerable to Cross Site Scripting (XSS)",
+          "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS via Navigation Links Block"
+        ],
+        "summary": "[en] Auth. Stored (contributor+) Cross-Site Scripting (XSS) vulnerability in WordPress core 6.3 through 6.3.1, from 6.2 through 6.2.2, from 6.1 through 6.1.3, from 6.0 through 6.0.5, from 5.9 through 5.9.7 and Gutenberg plugin <= 16.8.0 versions.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "16.8.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "16.8.1",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2023-38000",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS",
+        "aliases": [
+          "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS"
+        ],
+        "summary": "The plugin does not adequately escape the content of the footnotes within the paragraph block of the block editor, leading to a Contributor+ Cross-Site Scripting vulnerability.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "16.8.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "16.8.1",
+        "url": "https://wpscan.com/vulnerability/6ad7d26d-50e5-4f6f-b2c2-61b8bc68894f",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block",
+        "aliases": [
+          "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block"
+        ],
+        "summary": "The Gutenberg plugin for WordPress is vulnerable to Stored Cross-Site Scripting via user display names in the Avatar block in versions 12.9.0 to 18.0.0 due to insufficient output escaping on the display name. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.  In addition, it also makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that have the comment block present and display the comment author's avatar.",
+        "severity": null,
+        "affected": {
+          "min_version": "12.9.0",
+          "min_operator": "ge",
+          "max_version": "18.0.0",
+          "max_operator": "le",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "18.0.0",
+        "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/gutenberg/gutenberg-1290-1800-authenticated-contributor-stored-cross-site-scripting-via-avatar-block",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)",
+        "aliases": [
+          "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)"
+        ],
+        "summary": "Update the WordPress Gutenberg plugin to the latest available version (at least 18.1.0).\nJohn Blackbourn discovered and reported this Cross Site Scripting (XSS) vulnerability in WordPress Gutenberg Plugin. This could allow a malicious actor to inject malicious scripts, such as redirects, advertisements, and other HTML payloads into your website which will be executed when guests visit your site.  This vulnerability has been fixed in version 18.1.0.\nHave additional information or questions about this entry? Get in touch.",
+        "severity": null,
+        "affected": {
+          "min_version": "12.9.0",
+          "min_operator": "ge",
+          "max_version": "18.0.0",
+          "max_operator": "le",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "18.0.0",
+        "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-9-0-18-0-0-authenticated-contributor-stored-cross-site-scripting-via-avatar-block-vulnerability",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "CVE-2024-37492",
+        "aliases": [
+          "CVE-2024-37492",
+          "WordPress Gutenberg Plugin <= 18.6.0 is vulnerable to Cross Site Scripting (XSS)"
+        ],
+        "summary": "[en] Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Gutenberg Team Gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through 18.6.0.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "18.6.1",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "18.6.1",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2024-37492",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      },
+      {
+        "package": "gutenberg",
+        "version": "unknown",
+        "ecosystem": "WordPress",
+        "status": "advisories-unverified",
+        "id": "CVE-2025-64354",
+        "aliases": [
+          "CVE-2025-64354",
+          "WordPress Gutenberg Plugin <= 21.8.2 is vulnerable to Cross Site Scripting (XSS)",
+          "Gutenberg <= 21.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting"
+        ],
+        "summary": "[en] Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Matias Ventura Gutenberg gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through <= 21.8.2.",
+        "severity": null,
+        "affected": {
+          "min_version": null,
+          "min_operator": null,
+          "max_version": "21.9.0",
+          "max_operator": "lt",
+          "unfixed": "0",
+          "closed": "0"
+        },
+        "fixed": "21.9.0",
+        "url": "https://www.cve.org/CVERecord?id=CVE-2025-64354",
+        "source": "WPVulnerability",
+        "match": "component slug matched; installed version unknown, range not verified"
+      }
+    ],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://wordpress.org/",
+    "finalUrl": "https://wordpress.org/",
+    "scanMode": "shallow",
+    "fetchedAt": "2026-10-23T07:31:46.143Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "unknown",
+    "bundler": "unknown",
+    "dashboardScan": {
+      "websiteUrl": "https://wordpress.org/",
+      "finalUrl": "https://wordpress.org/",
+      "title": "Blog Tool, Publishing Platform, and CMS – WordPress.org",
+      "status": 200,
+      "framework": "unknown",
+      "bundler": "unknown",
+      "detectionReason": "The rendered page did not expose recognizable framework or bundler markers.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://wordpress.org/",
+      "finalUrl": "https://wordpress.org/",
+      "framework": "unknown",
+      "bundler": "unknown",
+      "pagesScanned": 1,
+      "totalDependencies": 15,
+      "dependencies": [
+        {
+          "name": "wp-emoji-release.min",
+          "version": "7.2-beta1-64681"
+        },
+        {
+          "name": "@angular/core",
+          "version": "unknown"
+        },
+        {
+          "name": "@sveltejs/kit",
+          "version": "unknown"
+        },
+        {
+          "name": "bootstrap",
+          "version": "unknown"
+        },
+        {
+          "name": "fuse.js",
+          "version": "unknown"
+        },
+        {
+          "name": "ionicons",
+          "version": "unknown"
+        },
+        {
+          "name": "jquery",
+          "version": "unknown"
+        },
+        {
+          "name": "gutenberg",
+          "version": "unknown"
+        },
+        {
+          "name": "wordpress",
+          "version": "7.2"
+        },
+        {
+          "name": "wporg-main-2022",
+          "version": "unknown"
+        },
+        {
+          "name": "wporg-parent-2021",
+          "version": "unknown"
+        },
+        {
+          "name": "wordpress",
+          "version": "7.2"
+        },
+        {
+          "name": "gutenberg",
+          "version": "unknown"
+        },
+        {
+          "name": "wporg-parent-2021",
+          "version": "unknown"
+        },
+        {
+          "name": "wporg-main-2022",
+          "version": "unknown"
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability",
+          "aliases": [
+            "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability"
+          ],
+          "summary": "Stored Cross-Site Scripting (XSS) vulnerability discovered by Ben Bidner in WordPress Gutenberg plugin (versions <= 12.7.1).",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "12.7.2",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "12.7.2",
+          "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-7-1-stored-cross-site-scripting-xss-vulnerability",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "CVE-2022-33994",
+          "aliases": [
+            "CVE-2022-33994",
+            "WordPress Gutenberg plugin <= 13.7.3 - Authenticated Stored Cross-Site Scripting (XSS) vulnerability",
+            "404 Page Not Found"
+          ],
+          "summary": "The Gutenberg plugin through 13.7.3 for WordPress allows stored XSS by the Contributor role via an SVG document to the \"Insert from URL\" feature. NOTE: the XSS payload does not execute in the context of the WordPress instance's domain; however, analogous attempts by low-privileged users to reference SVG documents are blocked by some similar products, and this behavioral difference might have security relevance to some WordPress site administrators.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "17.3.0",
+            "max_operator": "le",
+            "unfixed": "1",
+            "closed": "0"
+          },
+          "fixed": "17.3.0",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2022-33994",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities",
+          "aliases": [
+            "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities"
+          ],
+          "summary": "Multiple Stored Cross-Site Scripting (XSS) vulnerabilities via Search, Feature Image, RSS, and Widget blocks were discovered by Alex Concha (WP Security team) and a third-party audit in the WordPress Gutenberg plugin (versions <= 14.3.1).\nUpdate the WordPress Gutenberg plugin to the latest available version (at least 14.3.1).",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "14.3.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "14.3.1",
+          "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-14-3-0-multiple-stored-cross-site-scripting-xss-vulnerabilities",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "CVE-2022-43500",
+          "aliases": [
+            "WordPress Core < 6.0.3 & Gutenberg < 14.3.1 - Authenticated Cross-Site Scripting in Various Blocks",
+            "CVE-2022-43500"
+          ],
+          "summary": "[en] Cross-site scripting vulnerability in WordPress versions prior to 6.0.3 allows a remote unauthenticated attacker to inject an arbitrary script. The developer also provides new patched releases for all versions since 3.7.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "14.3.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "14.3.1",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2022-43500",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor",
+          "aliases": [
+            "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor"
+          ],
+          "summary": "WordPress Core in various versions < 5.9.2 and Gutenberg versions less than 12.7.2 are vulnerable to prototype pollution via the block editor which could make injecting malicious web scripts possible in some cases.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "12.7.2",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "12.7.2",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/detail/wordpress-core-592-gutenberg-1272-prototype-pollution-via-block-editor",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "Gutenberg &lt; 14.3.1 - Multiple Stored XSS",
+          "aliases": [
+            "Gutenberg &lt; 14.3.1 - Multiple Stored XSS"
+          ],
+          "summary": "The plugin does not escape data from some blocks before outputting ti back in pages, which could lead to Stored XSS issues.\r\n\r\nAffected blocks: Search, Feature Image, RSS and Widget",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "14.3.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "14.3.1",
+          "url": "https://wpscan.com/vulnerability/17d969e8-058e-4679-8594-bae605341fb8",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "CVE-2023-38000",
+          "aliases": [
+            "CVE-2023-38000",
+            "WordPress  Gutenberg Plugin  <= 16.8.0 is vulnerable to Cross Site Scripting (XSS)",
+            "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS via Navigation Links Block"
+          ],
+          "summary": "[en] Auth. Stored (contributor+) Cross-Site Scripting (XSS) vulnerability in WordPress core 6.3 through 6.3.1, from 6.2 through 6.2.2, from 6.1 through 6.1.3, from 6.0 through 6.0.5, from 5.9 through 5.9.7 and Gutenberg plugin <= 16.8.0 versions.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "16.8.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "16.8.1",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2023-38000",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS",
+          "aliases": [
+            "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS"
+          ],
+          "summary": "The plugin does not adequately escape the content of the footnotes within the paragraph block of the block editor, leading to a Contributor+ Cross-Site Scripting vulnerability.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "16.8.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "16.8.1",
+          "url": "https://wpscan.com/vulnerability/6ad7d26d-50e5-4f6f-b2c2-61b8bc68894f",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block",
+          "aliases": [
+            "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block"
+          ],
+          "summary": "The Gutenberg plugin for WordPress is vulnerable to Stored Cross-Site Scripting via user display names in the Avatar block in versions 12.9.0 to 18.0.0 due to insufficient output escaping on the display name. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.  In addition, it also makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that have the comment block present and display the comment author's avatar.",
+          "severity": null,
+          "affected": {
+            "min_version": "12.9.0",
+            "min_operator": "ge",
+            "max_version": "18.0.0",
+            "max_operator": "le",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "18.0.0",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/gutenberg/gutenberg-1290-1800-authenticated-contributor-stored-cross-site-scripting-via-avatar-block",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)",
+          "aliases": [
+            "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)"
+          ],
+          "summary": "Update the WordPress Gutenberg plugin to the latest available version (at least 18.1.0).\nJohn Blackbourn discovered and reported this Cross Site Scripting (XSS) vulnerability in WordPress Gutenberg Plugin. This could allow a malicious actor to inject malicious scripts, such as redirects, advertisements, and other HTML payloads into your website which will be executed when guests visit your site.  This vulnerability has been fixed in version 18.1.0.\nHave additional information or questions about this entry? Get in touch.",
+          "severity": null,
+          "affected": {
+            "min_version": "12.9.0",
+            "min_operator": "ge",
+            "max_version": "18.0.0",
+            "max_operator": "le",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "18.0.0",
+          "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-9-0-18-0-0-authenticated-contributor-stored-cross-site-scripting-via-avatar-block-vulnerability",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "CVE-2024-37492",
+          "aliases": [
+            "CVE-2024-37492",
+            "WordPress Gutenberg Plugin <= 18.6.0 is vulnerable to Cross Site Scripting (XSS)"
+          ],
+          "summary": "[en] Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Gutenberg Team Gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through 18.6.0.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "18.6.1",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "18.6.1",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-37492",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        },
+        {
+          "package": "gutenberg",
+          "version": "unknown",
+          "ecosystem": "WordPress",
+          "status": "advisories-unverified",
+          "id": "CVE-2025-64354",
+          "aliases": [
+            "CVE-2025-64354",
+            "WordPress Gutenberg Plugin <= 21.8.2 is vulnerable to Cross Site Scripting (XSS)",
+            "Gutenberg <= 21.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting"
+          ],
+          "summary": "[en] Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Matias Ventura Gutenberg gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through <= 21.8.2.",
+          "severity": null,
+          "affected": {
+            "min_version": null,
+            "min_operator": null,
+            "max_version": "21.9.0",
+            "max_operator": "lt",
+            "unfixed": "0",
+            "closed": "0"
+          },
+          "fixed": "21.9.0",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-64354",
+          "source": "WPVulnerability",
+          "match": "component slug matched; installed version unknown, range not verified"
+        }
+      ],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 1,
+      "maxDepth": 0,
+      "maxLinksPerPage": 0,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://wordpress.org/",
+        "finalUrl": "https://wordpress.org/",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Blog Tool, Publishing Platform, and CMS – WordPress.org",
+        "framework": "unknown",
+        "bundler": "unknown",
+        "frameworkReason": "The rendered page did not expose recognizable framework or bundler markers.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 11,
+        "errors": [],
+        "packageNames": [
+          "wp-emoji-release.min",
+          "@angular/core",
+          "@sveltejs/kit",
+          "bootstrap",
+          "fuse.js",
+          "ionicons",
+          "jquery",
+          "wordpress",
+          "gutenberg",
+          "wporg-parent-2021",
+          "wporg-main-2022"
+        ]
+      }
+    ],
+    "initialPackages": [
+      {
+        "name": "wp-emoji-release.min",
+        "rawNames": [
+          "wp-emoji-release.min"
+        ],
+        "version": "7.2-beta1-64681",
+        "versionIsExact": false,
+        "confidence": 0.85,
+        "tier": "high",
+        "signals": [
+          "url"
+        ],
+        "families": [
+          "url"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [
+          {
+            "version": "7.2-beta1-64681",
+            "weight": 0.85,
+            "votes": 1,
+            "exact": false
+          }
+        ],
+        "evidence": [
+          {
+            "signal": "url",
+            "detail": "query string version on wp-emoji-release.min.js",
+            "version": "7.2-beta1-64681"
+          }
+        ]
+      },
+      {
+        "name": "@angular/core",
+        "rawNames": [
+          "@angular/core"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 74 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 119 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 116 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "fuse.js",
+        "rawNames": [
+          "fuse.js"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 80 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 159 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); license banner identifies jquery; jQuery runtime global; jQuery runtime global read; SQLite inverted feature index matched 135 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "wordpress",
+        "slug": "wordpress",
+        "version": "7.2",
+        "versionHint": null,
+        "ecosystem": "WordPress",
+        "componentType": "core",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": "7.2",
+            "detail": "generator-meta"
+          }
+        ],
+        "tier": "exact",
+        "confidence": 0.95,
+        "declared": false
+      },
+      {
+        "name": "gutenberg",
+        "slug": "gutenberg",
+        "version": null,
+        "versionHint": "24.2.0",
+        "ecosystem": "WordPress",
+        "componentType": "plugin",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=24.2.0 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false
+      },
+      {
+        "name": "wporg-parent-2021",
+        "slug": "wporg-parent-2021",
+        "version": null,
+        "versionHint": "1781190440",
+        "ecosystem": "WordPress",
+        "componentType": "theme",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=1781190440 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false
+      },
+      {
+        "name": "wporg-main-2022",
+        "slug": "wporg-main-2022",
+        "version": null,
+        "versionHint": "1785161844",
+        "ecosystem": "WordPress",
+        "componentType": "theme",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=1785161844 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false
+      }
+    ],
+    "newlyDiscovered": [],
+    "packageCount": 15,
+    "packages": [
+      {
+        "name": "wp-emoji-release.min",
+        "rawNames": [
+          "wp-emoji-release.min"
+        ],
+        "version": "7.2-beta1-64681",
+        "versionIsExact": false,
+        "confidence": 0.85,
+        "tier": "high",
+        "signals": [
+          "url"
+        ],
+        "families": [
+          "url"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [
+          {
+            "version": "7.2-beta1-64681",
+            "weight": 0.85,
+            "votes": 1,
+            "exact": false
+          }
+        ],
+        "evidence": [
+          {
+            "signal": "url",
+            "detail": "query string version on wp-emoji-release.min.js",
+            "version": "7.2-beta1-64681"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@angular/core",
+        "rawNames": [
+          "@angular/core"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 74 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 119 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 116 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "fuse.js",
+        "rawNames": [
+          "fuse.js"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 80 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "ionicons",
+        "rawNames": [
+          "ionicons"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 159 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "jquery",
+        "rawNames": [
+          "jquery"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); license banner identifies jquery; jQuery runtime global; jQuery runtime global read; SQLite inverted feature index matched 135 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "gutenberg",
+        "rawNames": [
+          "gutenberg"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.3,
+        "tier": "low",
+        "signals": [
+          "wordpress-asset"
+        ],
+        "families": [
+          "wordpress-asset"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "detail": "public-asset-url; ?ver=24.2.0 is an asset hint, not an installed version",
+            "version": null
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "wordpress",
+        "rawNames": [
+          "wordpress"
+        ],
+        "version": "7.2",
+        "versionIsExact": false,
+        "confidence": 0.3,
+        "tier": "low",
+        "signals": [
+          "wordpress-asset"
+        ],
+        "families": [
+          "wordpress-asset"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [
+          {
+            "version": "7.2",
+            "weight": 0.3,
+            "votes": 1,
+            "exact": false
+          }
+        ],
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "detail": "generator-meta",
+            "version": "7.2"
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "wporg-main-2022",
+        "rawNames": [
+          "wporg-main-2022"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.3,
+        "tier": "low",
+        "signals": [
+          "wordpress-asset"
+        ],
+        "families": [
+          "wordpress-asset"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "detail": "public-asset-url; ?ver=1785161844 is an asset hint, not an installed version",
+            "version": null
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "wporg-parent-2021",
+        "rawNames": [
+          "wporg-parent-2021"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.3,
+        "tier": "low",
+        "signals": [
+          "wordpress-asset"
+        ],
+        "families": [
+          "wordpress-asset"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "detail": "public-asset-url; ?ver=1781190440 is an asset hint, not an installed version",
+            "version": null
+          }
+        ],
+        "foundOn": [
+          "https://wordpress.org/"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "wordpress",
+        "slug": "wordpress",
+        "version": "7.2",
+        "versionHint": null,
+        "ecosystem": "WordPress",
+        "componentType": "core",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": "7.2",
+            "detail": "generator-meta"
+          }
+        ],
+        "tier": "exact",
+        "confidence": 0.95,
+        "declared": false,
+        "vulnerabilityStatus": "no-known-vulnerabilities",
+        "vulnerabilityLookup": "complete",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "WPVulnerability"
+      },
+      {
+        "name": "gutenberg",
+        "slug": "gutenberg",
+        "version": null,
+        "versionHint": "24.2.0",
+        "ecosystem": "WordPress",
+        "componentType": "plugin",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=24.2.0 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false,
+        "vulnerabilityStatus": "advisories-unverified",
+        "vulnerabilityLookup": "complete",
+        "vulnerabilities": [
+          {
+            "id": "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability",
+            "aliases": [
+              "WordPress Gutenberg plugin <= 12.7.1 - Stored Cross-Site Scripting (XSS) vulnerability"
+            ],
+            "summary": "Stored Cross-Site Scripting (XSS) vulnerability discovered by Ben Bidner in WordPress Gutenberg plugin (versions <= 12.7.1).",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "12.7.2",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "12.7.2",
+            "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-7-1-stored-cross-site-scripting-xss-vulnerability",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "CVE-2022-33994",
+            "aliases": [
+              "CVE-2022-33994",
+              "WordPress Gutenberg plugin <= 13.7.3 - Authenticated Stored Cross-Site Scripting (XSS) vulnerability",
+              "404 Page Not Found"
+            ],
+            "summary": "The Gutenberg plugin through 13.7.3 for WordPress allows stored XSS by the Contributor role via an SVG document to the \"Insert from URL\" feature. NOTE: the XSS payload does not execute in the context of the WordPress instance's domain; however, analogous attempts by low-privileged users to reference SVG documents are blocked by some similar products, and this behavioral difference might have security relevance to some WordPress site administrators.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "17.3.0",
+              "max_operator": "le",
+              "unfixed": "1",
+              "closed": "0"
+            },
+            "fixed": "17.3.0",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2022-33994",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities",
+            "aliases": [
+              "WordPress Gutenberg plugin <= 14.3.0 - Multiple Stored Cross-Site Scripting (XSS) vulnerabilities"
+            ],
+            "summary": "Multiple Stored Cross-Site Scripting (XSS) vulnerabilities via Search, Feature Image, RSS, and Widget blocks were discovered by Alex Concha (WP Security team) and a third-party audit in the WordPress Gutenberg plugin (versions <= 14.3.1).\nUpdate the WordPress Gutenberg plugin to the latest available version (at least 14.3.1).",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "14.3.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "14.3.1",
+            "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-14-3-0-multiple-stored-cross-site-scripting-xss-vulnerabilities",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "CVE-2022-43500",
+            "aliases": [
+              "WordPress Core < 6.0.3 & Gutenberg < 14.3.1 - Authenticated Cross-Site Scripting in Various Blocks",
+              "CVE-2022-43500"
+            ],
+            "summary": "[en] Cross-site scripting vulnerability in WordPress versions prior to 6.0.3 allows a remote unauthenticated attacker to inject an arbitrary script. The developer also provides new patched releases for all versions since 3.7.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "14.3.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "14.3.1",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2022-43500",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor",
+            "aliases": [
+              "WordPress Core < 5.9.2 & Gutenberg < 12.7.2 - Prototype Pollution via Block Editor"
+            ],
+            "summary": "WordPress Core in various versions < 5.9.2 and Gutenberg versions less than 12.7.2 are vulnerable to prototype pollution via the block editor which could make injecting malicious web scripts possible in some cases.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "12.7.2",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "12.7.2",
+            "url": "https://www.wordfence.com/threat-intel/vulnerabilities/detail/wordpress-core-592-gutenberg-1272-prototype-pollution-via-block-editor",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "Gutenberg &lt; 14.3.1 - Multiple Stored XSS",
+            "aliases": [
+              "Gutenberg &lt; 14.3.1 - Multiple Stored XSS"
+            ],
+            "summary": "The plugin does not escape data from some blocks before outputting ti back in pages, which could lead to Stored XSS issues.\r\n\r\nAffected blocks: Search, Feature Image, RSS and Widget",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "14.3.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "14.3.1",
+            "url": "https://wpscan.com/vulnerability/17d969e8-058e-4679-8594-bae605341fb8",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "CVE-2023-38000",
+            "aliases": [
+              "CVE-2023-38000",
+              "WordPress  Gutenberg Plugin  <= 16.8.0 is vulnerable to Cross Site Scripting (XSS)",
+              "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS via Navigation Links Block"
+            ],
+            "summary": "[en] Auth. Stored (contributor+) Cross-Site Scripting (XSS) vulnerability in WordPress core 6.3 through 6.3.1, from 6.2 through 6.2.2, from 6.1 through 6.1.3, from 6.0 through 6.0.5, from 5.9 through 5.9.7 and Gutenberg plugin <= 16.8.0 versions.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "16.8.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "16.8.1",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2023-38000",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS",
+            "aliases": [
+              "Gutenberg &lt; 16.8.1 - Contributor+ Stored XSS"
+            ],
+            "summary": "The plugin does not adequately escape the content of the footnotes within the paragraph block of the block editor, leading to a Contributor+ Cross-Site Scripting vulnerability.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "16.8.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "16.8.1",
+            "url": "https://wpscan.com/vulnerability/6ad7d26d-50e5-4f6f-b2c2-61b8bc68894f",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block",
+            "aliases": [
+              "Gutenberg 12.9.0 - 18.0.0 - Unauthenticated & Authenticated (Contributor+) Stored Cross-Site Scripting via Avatar Block"
+            ],
+            "summary": "The Gutenberg plugin for WordPress is vulnerable to Stored Cross-Site Scripting via user display names in the Avatar block in versions 12.9.0 to 18.0.0 due to insufficient output escaping on the display name. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.  In addition, it also makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that have the comment block present and display the comment author's avatar.",
+            "severity": null,
+            "affected": {
+              "min_version": "12.9.0",
+              "min_operator": "ge",
+              "max_version": "18.0.0",
+              "max_operator": "le",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "18.0.0",
+            "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/gutenberg/gutenberg-1290-1800-authenticated-contributor-stored-cross-site-scripting-via-avatar-block",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)",
+            "aliases": [
+              "WordPress  Gutenberg Plugin    12.9.0-18.0.0 is vulnerable to Cross Site Scripting (XSS)"
+            ],
+            "summary": "Update the WordPress Gutenberg plugin to the latest available version (at least 18.1.0).\nJohn Blackbourn discovered and reported this Cross Site Scripting (XSS) vulnerability in WordPress Gutenberg Plugin. This could allow a malicious actor to inject malicious scripts, such as redirects, advertisements, and other HTML payloads into your website which will be executed when guests visit your site.  This vulnerability has been fixed in version 18.1.0.\nHave additional information or questions about this entry? Get in touch.",
+            "severity": null,
+            "affected": {
+              "min_version": "12.9.0",
+              "min_operator": "ge",
+              "max_version": "18.0.0",
+              "max_operator": "le",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "18.0.0",
+            "url": "https://patchstack.com/database/wordpress/plugin/gutenberg/vulnerability/wordpress-gutenberg-plugin-12-9-0-18-0-0-authenticated-contributor-stored-cross-site-scripting-via-avatar-block-vulnerability",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "CVE-2024-37492",
+            "aliases": [
+              "CVE-2024-37492",
+              "WordPress Gutenberg Plugin <= 18.6.0 is vulnerable to Cross Site Scripting (XSS)"
+            ],
+            "summary": "[en] Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Gutenberg Team Gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through 18.6.0.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "18.6.1",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "18.6.1",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2024-37492",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          },
+          {
+            "id": "CVE-2025-64354",
+            "aliases": [
+              "CVE-2025-64354",
+              "WordPress Gutenberg Plugin <= 21.8.2 is vulnerable to Cross Site Scripting (XSS)",
+              "Gutenberg <= 21.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting"
+            ],
+            "summary": "[en] Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Matias Ventura Gutenberg gutenberg allows Stored XSS.This issue affects Gutenberg: from n/a through <= 21.8.2.",
+            "severity": null,
+            "affected": {
+              "min_version": null,
+              "min_operator": null,
+              "max_version": "21.9.0",
+              "max_operator": "lt",
+              "unfixed": "0",
+              "closed": "0"
+            },
+            "fixed": "21.9.0",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2025-64354",
+            "source": "WPVulnerability",
+            "match": "component slug matched; installed version unknown, range not verified"
+          }
+        ],
+        "vulnerabilityDatabase": "WPVulnerability"
+      },
+      {
+        "name": "wporg-parent-2021",
+        "slug": "wporg-parent-2021",
+        "version": null,
+        "versionHint": "1781190440",
+        "ecosystem": "WordPress",
+        "componentType": "theme",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=1781190440 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false,
+        "vulnerabilityStatus": "no-known-vulnerabilities",
+        "vulnerabilityLookup": "complete",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "WPVulnerability"
+      },
+      {
+        "name": "wporg-main-2022",
+        "slug": "wporg-main-2022",
+        "version": null,
+        "versionHint": "1785161844",
+        "ecosystem": "WordPress",
+        "componentType": "theme",
+        "evidence": [
+          {
+            "signal": "wordpress-asset",
+            "version": null,
+            "detail": "public-asset-url; ?ver=1785161844 is an asset hint, not an installed version"
+          }
+        ],
+        "tier": "possible",
+        "confidence": 0.72,
+        "declared": false,
+        "vulnerabilityStatus": "no-known-vulnerabilities",
+        "vulnerabilityLookup": "complete",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "WPVulnerability"
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}

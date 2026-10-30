@@ -1,0 +1,77 @@
+{
+  "id": "676db69b-d7ea-4fad-8696-f1ee21ad6a13",
+  "createdAt": "2026-10-18T13:38:02.240Z",
+  "url": "https://bitcointreasuries.net/",
+  "finalUrl": "https://bitcointreasuries.net/",
+  "framework": "unknown",
+  "bundler": "unknown",
+  "pagesScanned": 0,
+  "pageCount": 1,
+  "dependencyCount": 0,
+  "scanCompleted": false,
+  "reportEligible": false,
+  "report": null,
+  "reportReason": "No JSON report was produced because the dashboard check could not complete. Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443.",
+  "scanResult": {
+    "url": "https://bitcointreasuries.net/",
+    "finalUrl": "https://bitcointreasuries.net/",
+    "fetchedAt": "2026-10-18T13:38:02.239Z",
+    "crawler": "browser",
+    "scanCompleted": false,
+    "framework": "unknown",
+    "bundler": "unknown",
+    "dashboardScan": {
+      "websiteUrl": "https://bitcointreasuries.net/",
+      "finalUrl": "https://bitcointreasuries.net/",
+      "title": null,
+      "status": 0,
+      "framework": "unknown",
+      "bundler": "unknown",
+      "detectionReason": "The rendered page could not be inspected.",
+      "checked": false,
+      "reason": "No JSON report was produced because the dashboard check could not complete. Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443."
+    },
+    "reportEligible": false,
+    "reportReason": "No JSON report was produced because the dashboard check could not complete. Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443.",
+    "report": null,
+    "reason": "Could not render https://bitcointreasuries.net/: Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443.",
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 25,
+      "maxDepth": 1,
+      "maxLinksPerPage": 24,
+      "delayBetweenPagesMs": 0,
+      "stoppedReason": "Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443.",
+      "warnings": [
+        "Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443."
+      ]
+    },
+    "pages": [
+      {
+        "url": "https://bitcointreasuries.net/",
+        "finalUrl": "https://bitcointreasuries.net/",
+        "depth": 0,
+        "status": 0,
+        "linksFound": 0,
+        "title": null,
+        "framework": "unknown",
+        "bundler": "unknown",
+        "frameworkReason": "The rendered page could not be inspected.",
+        "dashboardChecked": false,
+        "scanCompleted": false,
+        "packageCount": 0,
+        "errors": [
+          "Could not render https://bitcointreasuries.net/: Browser navigation and HTTP fallbacks could not retrieve https://bitcointreasuries.net/. Fetch fallback: [GET] \"https://bitcointreasuries.net/\": <no response> fetch failed. Axios fallback: Failed to fetch https://bitcointreasuries.net/: connect EACCES 104.26.12.111:443."
+        ],
+        "packageNames": []
+      }
+    ],
+    "initialPackages": [],
+    "newlyDiscovered": [],
+    "packageCount": 0,
+    "packages": [],
+    "declaredDependencies": {}
+  }
+}

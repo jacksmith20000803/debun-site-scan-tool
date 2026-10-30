@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+dist/
+
+# reports / artifacts
+*.report.json
+out-*.json
+*.log
+.cache/
+artifacts/electron/
+
+# scripts saved with --save-scripts
+saved-scripts/
+data/crawled/
+storage/debun-plus.sqlite*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

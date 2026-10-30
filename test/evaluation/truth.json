@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "builderInfo": {
+    "webpackFallbackUsed": false,
+    "note": "All fixtures were built with the named bundlers."
+  },
+  "fixtures": [
+    {
+      "id": "webpack-01",
+      "bundler": "webpack",
+      "buildMethod": "webpack",
+      "bundle": "webpack-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ]
+    },
+    {
+      "id": "webpack-02",
+      "bundler": "webpack",
+      "buildMethod": "webpack",
+      "bundle": "webpack-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    },
+    {
+      "id": "webpack-03",
+      "bundler": "webpack",
+      "buildMethod": "webpack",
+      "bundle": "webpack-03.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        },
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    },
+    {
+      "id": "esbuild-01",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ]
+    },
+    {
+      "id": "esbuild-02",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    },
+    {
+      "id": "esbuild-03",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-03.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        },
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    },
+    {
+      "id": "rollup-01",
+      "bundler": "rollup",
+      "buildMethod": "rollup",
+      "bundle": "rollup-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ]
+    },
+    {
+      "id": "rollup-02",
+      "bundler": "rollup",
+      "buildMethod": "rollup",
+      "bundle": "rollup-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    },
+    {
+      "id": "vite-01",
+      "bundler": "vite",
+      "buildMethod": "vite",
+      "bundle": "vite-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ]
+    },
+    {
+      "id": "vite-02",
+      "bundler": "vite",
+      "buildMethod": "vite",
+      "bundle": "vite-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ]
+    }
+  ]
+}

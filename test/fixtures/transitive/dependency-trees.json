@@ -1,0 +1,61 @@
+{
+  "root-a": {
+    "name": "root-a",
+    "version": "1.0.0",
+    "dependencies": {
+      "shared-core": {
+        "name": "shared-core",
+        "version": "1.4.0",
+        "requestedRange": "^1.2.0",
+        "dependencyType": "dependency",
+        "dependencies": {}
+      },
+      "alpha-extra": {
+        "name": "alpha-extra",
+        "version": "2.1.0",
+        "requestedRange": "^2.0.0",
+        "dependencyType": "dependency",
+        "dependencies": {
+          "leaf-lib": {
+            "name": "leaf-lib",
+            "version": "3.1.0",
+            "requestedRange": "^3.0.0",
+            "dependencyType": "dependency",
+            "dependencies": {}
+          }
+        }
+      }
+    }
+  },
+  "root-b": {
+    "name": "root-b",
+    "version": "1.0.0",
+    "dependencies": {
+      "shared-core": {
+        "name": "shared-core",
+        "version": "1.4.0",
+        "requestedRange": ">=1.3.0 <2.0.0",
+        "dependencyType": "dependency",
+        "dependencies": {}
+      }
+    }
+  },
+  "exact-root": {
+    "name": "exact-root",
+    "version": "1.0.0",
+    "dependencies": {}
+  },
+  "root-lead": {
+    "name": "root-lead",
+    "version": "1.8.0",
+    "dependencies": {
+      "lead-child": {
+        "name": "lead-child",
+        "version": "4.1.0",
+        "requestedRange": "^4.0.0",
+        "dependencyType": "dependency",
+        "dependencies": {}
+      }
+    }
+  }
+}

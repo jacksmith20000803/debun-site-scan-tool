@@ -1,0 +1,609 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T12:01:09.688Z",
+  "bundleDirectory": "E:\\New folder (2)\\deban\\deban-package\\test\\evaluation\\bundles",
+  "groundTruthFile": "E:\\New folder (2)\\deban\\deban-package\\test\\evaluation\\truth.json",
+  "fixtureCount": 10,
+  "builderInfo": {
+    "webpackFallbackUsed": true,
+    "note": "Webpack fixture files use a deterministic Webpack JSONP wrapper around esbuild output because Webpack is not installed; the builder uses actual Webpack automatically when available."
+  },
+  "overall": {
+    "name": {
+      "truePositive": 12,
+      "falsePositive": 0,
+      "falseNegative": 0,
+      "precision": 1,
+      "recall": 1
+    },
+    "version": {
+      "truePositive": 12,
+      "falsePositive": 0,
+      "falseNegative": 0,
+      "precision": 1,
+      "recall": 1
+    }
+  },
+  "byTier": {
+    "exact": {
+      "name": {
+        "truePositive": 12,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      },
+      "version": {
+        "truePositive": 12,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      }
+    },
+    "range": {
+      "name": {
+        "truePositive": 0,
+        "falsePositive": 0,
+        "falseNegative": 12,
+        "precision": null,
+        "recall": 0
+      },
+      "version": {
+        "truePositive": 0,
+        "falsePositive": 0,
+        "falseNegative": 12,
+        "precision": null,
+        "recall": 0
+      }
+    },
+    "possible": {
+      "name": {
+        "truePositive": 0,
+        "falsePositive": 0,
+        "falseNegative": 12,
+        "precision": null,
+        "recall": 0
+      },
+      "version": {
+        "truePositive": 0,
+        "falsePositive": 0,
+        "falseNegative": 12,
+        "precision": null,
+        "recall": 0
+      }
+    }
+  },
+  "byBundler": {
+    "esbuild": {
+      "name": {
+        "truePositive": 4,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      },
+      "version": {
+        "truePositive": 4,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      }
+    },
+    "rollup": {
+      "name": {
+        "truePositive": 2,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      },
+      "version": {
+        "truePositive": 2,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      }
+    },
+    "vite": {
+      "name": {
+        "truePositive": 2,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      },
+      "version": {
+        "truePositive": 2,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      }
+    },
+    "webpack": {
+      "name": {
+        "truePositive": 4,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      },
+      "version": {
+        "truePositive": 4,
+        "falsePositive": 0,
+        "falseNegative": 0,
+        "precision": 1,
+        "recall": 1
+      }
+    }
+  },
+  "fixtures": [
+    {
+      "id": "webpack-01",
+      "bundler": "webpack",
+      "buildMethod": "esbuild wrapped in a Webpack JSONP module fixture (Webpack package unavailable)",
+      "bundle": "webpack-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4451,
+          "margin": 0.4451,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies lodash"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 291 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.963, 4-gram 0.000, identifier 0.047; 15 supporting fragments; margin 0.445",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "webpack-02",
+      "bundler": "webpack",
+      "buildMethod": "esbuild wrapped in a Webpack JSONP module fixture (Webpack package unavailable)",
+      "bundle": "webpack-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.8451,
+          "margin": 0.8451,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies jquery"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1699 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.696, 4-gram 0.965, identifier 0.970; 163 supporting fragments; margin 0.845",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "webpack-03",
+      "bundler": "webpack",
+      "buildMethod": "esbuild wrapped in a Webpack JSONP module fixture (Webpack package unavailable)",
+      "bundle": "webpack-03.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        },
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.794,
+          "margin": 0.794,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies jquery"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1298 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.656, 4-gram 0.919, identifier 0.892; 109 supporting fragments; margin 0.794",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        },
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4433,
+          "margin": 0.4433,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies lodash"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 251 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.963, 4-gram 0.000, identifier 0.040; 15 supporting fragments; margin 0.443",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "esbuild-01",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4451,
+          "margin": 0.4451,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies lodash"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 291 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.963, 4-gram 0.000, identifier 0.047; 15 supporting fragments; margin 0.445",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "esbuild-02",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.8452,
+          "margin": 0.8452,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies jquery"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1700 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.696, 4-gram 0.965, identifier 0.970; 162 supporting fragments; margin 0.845",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "esbuild-03",
+      "bundler": "esbuild",
+      "buildMethod": "esbuild",
+      "bundle": "esbuild-03.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        },
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.794,
+          "margin": 0.794,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies jquery"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1298 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.656, 4-gram 0.919, identifier 0.892; 109 supporting fragments; margin 0.794",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        },
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4433,
+          "margin": 0.4433,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies lodash"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 251 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.963, 4-gram 0.000, identifier 0.040; 15 supporting fragments; margin 0.443",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "rollup-01",
+      "bundler": "rollup",
+      "buildMethod": "rollup",
+      "bundle": "rollup-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4552,
+          "margin": 0.4552,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies lodash"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 286 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.964, 4-gram 0.000, identifier 0.086; 17 supporting fragments; margin 0.455",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "rollup-02",
+      "bundler": "rollup",
+      "buildMethod": "rollup",
+      "bundle": "rollup-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.9578,
+          "margin": 0.9578,
+          "evidence": [
+            {
+              "source": "license-banner",
+              "detail": "license banner identifies jquery"
+            },
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1885 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.918, 4-gram 0.992, identifier 0.989; 197 supporting fragments; margin 0.958",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "vite-01",
+      "bundler": "vite",
+      "buildMethod": "vite",
+      "bundle": "vite-01.js",
+      "packages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "lodash",
+          "version": "4.18.1",
+          "tier": "exact",
+          "score": 0.4451,
+          "margin": 0.4451,
+          "evidence": [
+            {
+              "source": "runtime-global",
+              "detail": "Lodash runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 287 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.963, 4-gram 0.000, identifier 0.047; 15 supporting fragments; margin 0.445",
+              "version": "4.18.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    },
+    {
+      "id": "vite-02",
+      "bundler": "vite",
+      "buildMethod": "vite",
+      "bundle": "vite-02.js",
+      "packages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1"
+        }
+      ],
+      "predictedPackages": [
+        {
+          "name": "jquery",
+          "version": "3.7.1",
+          "tier": "exact",
+          "score": 0.845,
+          "margin": 0.845,
+          "evidence": [
+            {
+              "source": "runtime-global",
+              "detail": "jQuery runtime global"
+            },
+            {
+              "source": "ast-property",
+              "detail": "SQLite inverted feature index matched 1704 bundle signatures"
+            },
+            {
+              "source": "registry-fingerprint",
+              "detail": "fused AST 0.697, 4-gram 0.964, identifier 0.969; 165 supporting fragments; margin 0.845",
+              "version": "3.7.1"
+            }
+          ],
+          "dependencies": {}
+        }
+      ]
+    }
+  ]
+}

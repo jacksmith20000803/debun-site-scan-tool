@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050c1b" />
+    <title>Saved scans · WebScan</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body class="history-page">
+    <div class="app-layout history-layout">
+      <input class="sidebar-toggle-control" id="sidebar-toggle" type="checkbox" aria-label="Toggle navigation" />
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="WebScan home"><span class="brand-mark"><img src="/ico.ico" alt="" /></span><span class="brand-copy"><strong>WebScan</strong></span></a>
+        <nav class="side-navigation" aria-label="Workspace sections">
+          <p class="navigation-heading">WORKSPACE</p>
+          <a class="navigation-item" href="/" title="New scan"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 5 5M10.8 7.5v6.6M7.5 10.8h6.6" /></svg><span>New scan</span></a>
+          <a class="navigation-item" href="/#results" title="Scan results"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 12h8M8 15h5" /></svg><span>Scan results</span></a>
+          <a class="navigation-item" href="/#pages-summary" title="Pages visited"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" /><circle cx="12" cy="9" r="2.3" /></svg><span>Pages visited</span></a>
+          <p class="navigation-heading navigation-heading-spaced">LIBRARY</p>
+          <a class="navigation-item active" href="/saved" aria-current="page" title="Saved scans"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h14v16l-7-4-7 4z" /></svg><span>Saved scans</span></a>
+        </nav>
+      </aside>
+      <label class="sidebar-overlay" for="sidebar-toggle" aria-label="Close navigation"></label>
+
+      <div class="main-column">
+        <main class="shell history-shell">
+          <label class="mobile-menu-toggle mobile-nav-trigger" for="sidebar-toggle" aria-label="Open navigation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg></label>
+          <section class="active-scan-banner hidden" id="active-scan-banner" aria-live="polite">
+            <span class="spinner" aria-hidden="true"></span>
+            <div class="active-scan-copy"><strong id="active-scan-label">Scan in progress</strong><span id="active-scan-target"></span></div>
+            <strong class="active-scan-percent" id="active-scan-percent">0%</strong>
+            <div class="active-scan-track" role="progressbar" aria-label="Background scan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="active-scan-meter"><span id="active-scan-fill"></span></div>
+            <button class="stop-scan-button" id="active-scan-stop" type="button">Detener</button>
+          </section>
+          <section class="history-heading">
+            <div><div class="eyebrow"><span class="eyebrow-line"></span> LOCAL LIBRARY</div><h1>Saved scans</h1><p>Each completed scan is stored as a JSON file on this machine.</p></div>
+            <a class="primary-button history-new-scan" href="/">New scan <span aria-hidden="true">↗</span></a>
+          </section>
+
+          <section class="results-table-card history-card" aria-labelledby="saved-table-heading">
+            <div class="table-card-heading history-table-heading"><div><h2 id="saved-table-heading">Scan records</h2><p id="saved-count">Loading saved scans…</p></div><label class="history-search"><svg class="history-search-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m15.5 15.5 5 5"></path></svg><input id="saved-search" type="search" placeholder="Search URLs or framework" aria-label="Search saved scans" /></label></div>
+            <div class="table-scroll"><table class="results-table saved-table"><thead><tr><th>Website URL</th><th>Scanned</th><th>Framework / bundler</th><th>Pages</th><th>Packages</th><th>Status</th><th>Actions</th></tr></thead><tbody id="saved-rows"></tbody></table></div>
+            <div class="history-pagination"><span id="page-indicator">Page 1</span><div><button class="secondary-button" id="previous-page" type="button">← Previous</button><button class="secondary-button" id="next-page" type="button">Next →</button></div></div>
+            <div class="history-empty hidden" id="history-empty">No saved scans found. Run a scan to create the first JSON record.</div>
+            <div class="history-error hidden" id="history-error" role="status"></div>
+          </section>
+
+          <section class="json-panel hidden" id="saved-json-panel" aria-labelledby="saved-json-heading">
+            <div class="json-top"><div><span class="json-live"></span><strong id="saved-json-heading">Saved JSON file</strong><span id="saved-file-name" class="saved-file-name"></span></div><div class="json-actions"><button class="text-button" id="copy-saved-json" type="button">Copy JSON</button><button class="download-button" id="download-saved-json" type="button">↓ Download JSON</button></div></div>
+            <pre id="saved-json-output"></pre>
+          </section>
+          <footer><span>PAGE / DEPS <span class="footer-dot">·</span> SAVED SCAN FILES</span><a href="/">Return to new scan <span aria-hidden="true">↗</span></a></footer>
+        </main>
+      </div>
+    </div>
+    <script src="/saved.js" defer></script>
+  </body>
+</html>

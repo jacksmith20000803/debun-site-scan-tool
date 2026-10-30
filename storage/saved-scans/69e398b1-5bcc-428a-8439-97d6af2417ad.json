@@ -1,0 +1,447 @@
+{
+  "id": "69e398b1-5bcc-428a-8439-97d6af2417ad",
+  "createdAt": "2026-10-23T07:37:02.207Z",
+  "url": "https://nodejs.org/",
+  "finalUrl": "https://nodejs.org/en",
+  "framework": "next.js",
+  "bundler": "turbopack",
+  "pagesScanned": 1,
+  "pageCount": 1,
+  "dependencyCount": 5,
+  "scanCompleted": true,
+  "reportEligible": true,
+  "report": {
+    "websiteUrl": "https://nodejs.org/",
+    "finalUrl": "https://nodejs.org/en",
+    "framework": "next.js",
+    "bundler": "turbopack",
+    "pagesScanned": 1,
+    "totalDependencies": 5,
+    "dependencies": [
+      {
+        "name": ".pnpm",
+        "version": "unknown"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "version": "unknown"
+      },
+      {
+        "name": "bootstrap",
+        "version": "unknown"
+      },
+      {
+        "name": "next",
+        "version": "unknown"
+      },
+      {
+        "name": "react",
+        "version": "unknown"
+      }
+    ],
+    "vulnerabilities": [],
+    "vulnerabilitySources": [
+      "OSV.dev",
+      "WPVulnerability"
+    ]
+  },
+  "reportReason": null,
+  "scanResult": {
+    "url": "https://nodejs.org/",
+    "finalUrl": "https://nodejs.org/en",
+    "scanMode": "shallow",
+    "fetchedAt": "2026-10-23T07:37:02.207Z",
+    "crawler": "browser",
+    "scanCompleted": true,
+    "framework": "next.js",
+    "bundler": "turbopack",
+    "dashboardScan": {
+      "websiteUrl": "https://nodejs.org/en",
+      "finalUrl": "https://nodejs.org/en",
+      "title": "Node.js — Run JavaScript Everywhere",
+      "status": 200,
+      "framework": "next.js",
+      "bundler": "turbopack",
+      "detectionReason": "next.js runtime markers were found. turbopack pattern hints (pattern version Next.js 16.4.2 stable; 16.5.0-canary.17 canary) were found.",
+      "checked": true,
+      "reason": null
+    },
+    "reportEligible": true,
+    "report": {
+      "websiteUrl": "https://nodejs.org/",
+      "finalUrl": "https://nodejs.org/en",
+      "framework": "next.js",
+      "bundler": "turbopack",
+      "pagesScanned": 1,
+      "totalDependencies": 5,
+      "dependencies": [
+        {
+          "name": ".pnpm",
+          "version": "unknown"
+        },
+        {
+          "name": "@sveltejs/kit",
+          "version": "unknown"
+        },
+        {
+          "name": "bootstrap",
+          "version": "unknown"
+        },
+        {
+          "name": "next",
+          "version": "unknown"
+        },
+        {
+          "name": "react",
+          "version": "unknown"
+        }
+      ],
+      "vulnerabilities": [],
+      "vulnerabilitySources": [
+        "OSV.dev",
+        "WPVulnerability"
+      ]
+    },
+    "crawl": {
+      "pagesVisited": 1,
+      "linksDiscovered": 0,
+      "pagesQueued": 1,
+      "maxPages": 1,
+      "maxDepth": 0,
+      "maxLinksPerPage": 0,
+      "delayBetweenPagesMs": 0,
+      "warnings": []
+    },
+    "pages": [
+      {
+        "url": "https://nodejs.org/en",
+        "finalUrl": "https://nodejs.org/en",
+        "depth": 0,
+        "status": 200,
+        "linksFound": 0,
+        "title": "Node.js — Run JavaScript Everywhere",
+        "framework": "next.js",
+        "bundler": "turbopack",
+        "frameworkReason": "next.js runtime markers were found. turbopack pattern hints (pattern version Next.js 16.4.2 stable; 16.5.0-canary.17 canary) were found.",
+        "dashboardChecked": true,
+        "scanCompleted": true,
+        "packageCount": 5,
+        "errors": [],
+        "packageNames": [
+          ".pnpm",
+          "@sveltejs/kit",
+          "bootstrap",
+          "next",
+          "react"
+        ]
+      }
+    ],
+    "initialPackages": [
+      {
+        "name": ".pnpm",
+        "rawNames": [
+          ".pnpm"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: .pnpm; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 273 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 287 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "next",
+        "rawNames": [
+          "next"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: next; Next.js runtime read; Next.js framework runtime data/read marker; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); React runtime global; React runtime global read; SQLite inverted feature index matched 381 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ]
+      }
+    ],
+    "newlyDiscovered": [],
+    "packageCount": 5,
+    "packages": [
+      {
+        "name": ".pnpm",
+        "rawNames": [
+          ".pnpm"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: .pnpm; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://nodejs.org/en"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "@sveltejs/kit",
+        "rawNames": [
+          "@sveltejs/kit"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 273 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://nodejs.org/en"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "bootstrap",
+        "rawNames": [
+          "bootstrap"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); SQLite inverted feature index matched 287 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://nodejs.org/en"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "next",
+        "rawNames": [
+          "next"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); package path in bundle: next; Next.js runtime read; Next.js framework runtime data/read marker; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://nodejs.org/en"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      },
+      {
+        "name": "react",
+        "rawNames": [
+          "react"
+        ],
+        "versionIsExact": false,
+        "confidence": 0.42,
+        "tier": "low",
+        "signals": [
+          "registry-possible"
+        ],
+        "families": [
+          "registry-fingerprint"
+        ],
+        "declared": false,
+        "installationStatus": "observed",
+        "declaredRanges": [],
+        "alternatives": [],
+        "versionCandidates": [],
+        "evidence": [
+          {
+            "signal": "registry-possible",
+            "detail": "debun-plus corpus fingerprint (score 0.000, margin 0.000); React runtime global; React runtime global read; SQLite inverted feature index matched 381 bundle signatures; registry corpus version fingerprints were unavailable for comparison"
+          }
+        ],
+        "foundOn": [
+          "https://nodejs.org/en"
+        ],
+        "pagesFound": 1,
+        "vulnerabilityStatus": "version-unverified",
+        "vulnerabilityLookup": "skipped",
+        "vulnerabilities": [],
+        "vulnerabilityDatabase": "OSV.dev"
+      }
+    ],
+    "declaredDependencies": {}
+  }
+}
