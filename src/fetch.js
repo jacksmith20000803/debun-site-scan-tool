@@ -1,12 +1,45 @@
 'use strict';
 
 const axios = require('axios');
+const https = require('node:https');
 const { normalizeUrl } = require('./util/url');
 const { log } = require('./util/log');
 
 const DEFAULT_USER_AGENT =
   'page-deps/1.0 (+https://github.com/; dependency inference)';
 const DEFAULT_MAX_BYTES = 25 * 1024 * 1024;
+
+// Only retry certificate validation failures. Network, HTTP, and timeout
+// failures must retain the normal strict-TLS behavior. The insecure agent is
+// request-local and is never used for registry/CVE or other unrelated calls.
+function isCertificateValidationError(error) {
+  const seen = new Set();
+  let current = error;
+  while (current && !seen.has(current)) {
+    seen.add(current);
+    const code = String(current.code || current.errno || '').toUpperCase();
+    const message = String(current.message || '');
+    if (/^(CERT_HAS_EXPIRED|ERR_CERT_DATE_INVALID|DEPTH_ZERO_SELF_SIGNED_CERT|SELF_SIGNED_CERT_IN_CHAIN|UNABLE_TO_VERIFY_LEAF_SIGNATURE|CERT_UNTRUSTED)$/.test(code) ||
+        /certificate has expired|certificate is not yet valid|self[- ]signed certificate|unable to verify the first certificate/i.test(message)) return true;
+    current = current.cause;
+  }
+  return false;
+}
+
+async function getWithCertificateFallback(client, url, config = {}) {
+  try {
+    return { response: await client.get(url, config), tlsValidationBypassed: false };
+  } catch (error) {
+    if (!isCertificateValidationError(error) || config.signal?.aborted) throw error;
+    const agent = new https.Agent({ rejectUnauthorized: false, keepAlive: false });
+    try {
+      const response = await client.get(url, { ...config, httpsAgent: agent });
+      return { response, tlsValidationBypassed: true };
+    } finally {
+      agent.destroy();
+    }
+  }
+}
 
 function createClient({ timeout = 20000, headers = {}, maxBytes = DEFAULT_MAX_BYTES } = {}) {
   return axios.create({
@@ -49,12 +82,18 @@ async function fetchDocument(url, options = {}) {
   });
 
   let response;
+  let tlsValidationBypassed = false;
   try {
-    response = await client.get(requestedUrl, {
+    const fetched = await getWithCertificateFallback(client, requestedUrl, {
       responseType: 'text',
       headers: { Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' },
       signal: options.signal,
     });
+    response = fetched.response;
+    tlsValidationBypassed = fetched.tlsValidationBypassed;
+    if (fetched.tlsValidationBypassed) {
+      log.warn(`TLS certificate validation failed for ${requestedUrl}; fetched only this scan target with certificate checks disabled.`);
+    }
   } catch (error) {
     if (options.signal?.aborted || error?.name === 'CanceledError' || error?.code === 'ERR_CANCELED') throw error;
     throw new Error(`Failed to fetch ${requestedUrl}: ${error.message}`);
@@ -70,6 +109,7 @@ async function fetchDocument(url, options = {}) {
     headers: response.headers || {},
     contentType,
     body: typeof response.data === 'string' ? response.data : String(response.data ?? ''),
+    tlsValidationBypassed,
   };
 }
 
@@ -85,7 +125,11 @@ async function fetchText(url, options = {}) {
     maxBytes: options.maxBytes ?? 15 * 1024 * 1024,
   });
   try {
-    const response = await client.get(url, { responseType: 'text', signal: options.signal });
+    const fetched = await getWithCertificateFallback(client, url, { responseType: 'text', signal: options.signal });
+    const response = fetched.response;
+    if (fetched.tlsValidationBypassed) {
+      log.warn(`TLS certificate validation failed for ${url}; fetched only this scan target with certificate checks disabled.`);
+    }
     const contentType = headerValue(response.headers, 'content-type') || '';
     if (response.status < 200 || response.status >= 400) {
       log.step(`HTTP ${response.status} for ${url}`);
@@ -97,6 +141,7 @@ async function fetchText(url, options = {}) {
       contentType,
       headers: response.headers || {},
       text: typeof response.data === 'string' ? response.data : String(response.data ?? ''),
+      tlsValidationBypassed: Boolean(fetched.tlsValidationBypassed),
     };
   } catch (error) {
     if (options.signal?.aborted || error?.name === 'CanceledError' || error?.code === 'ERR_CANCELED') throw error;
@@ -130,4 +175,4 @@ async function mapPool(items, limit, worker, options = {}) {
   return results;
 }
 
-module.exports = { fetchDocument, fetchText, createClient, mapPool, DEFAULT_USER_AGENT };
+module.exports = { fetchDocument, fetchText, createClient, mapPool, DEFAULT_USER_AGENT, isCertificateValidationError };

@@ -31,6 +31,7 @@ const packageResultsCount = document.querySelector('#package-results-count');
 const pagesSummary = document.querySelector('#pages-summary');
 const pagesTotal = document.querySelector('#pages-total');
 const jsonOutput = document.querySelector('#json-output');
+const jsonLineNumbers = document.querySelector('#json-line-numbers');
 const jsonPanel = document.querySelector('.json-panel');
 const downloadButton = document.querySelector('#download-json');
 const scanSweep = document.querySelector('#scan-sweep');
@@ -188,6 +189,7 @@ async function finishJob(job) {
       const { scanResult, jsonReport } = job.result;
       present(scanResult, { output: jsonReport });
       if (!scanResult.reportEligible) showNotice(scanResult.reportReason || scanResult.reason || 'No JSON report was produced.');
+      else if (scanResult.warnings?.length) showNotice(scanResult.warnings[0]);
     } else {
       const { scanResults, jsonReport } = job.result;
       present(scanResults, { isBatch: true, output: jsonReport });
@@ -346,11 +348,47 @@ function beginResults() {
   pagesSummary.classList.add('hidden');
   dashboardWarning.classList.add('hidden');
   jsonPanel.classList.add('hidden');
-  jsonOutput.textContent = '';
+  jsonOutput.replaceChildren();
+  jsonLineNumbers.replaceChildren();
   currentJson = '';
   downloadButton.classList.add('hidden');
   document.querySelector('#save-report-button').disabled = true;
   results.classList.remove('hidden');
+}
+
+function renderJsonReport(source) {
+  jsonOutput.replaceChildren();
+  jsonLineNumbers.replaceChildren();
+  if (!source) return;
+  const tokenPattern = /("(?:\\.|[^"\\])*"(?=\s*:)|"(?:\\.|[^"\\])*"|-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?|\b(?:true|false|null)\b|[{}[\],:])/g;
+  const lines = source.split('\n');
+  for (const [index, line] of lines.entries()) {
+    const number = document.createElement('span');
+    number.className = 'json-line-number';
+    number.textContent = String(index + 1);
+    jsonLineNumbers.append(number);
+
+    const renderedLine = document.createElement('span');
+    renderedLine.className = 'json-code-line';
+    let cursor = 0;
+    for (const match of line.matchAll(tokenPattern)) {
+      const token = match[0];
+      const tokenIndex = match.index;
+      if (tokenIndex > cursor) renderedLine.append(document.createTextNode(line.slice(cursor, tokenIndex)));
+      const highlighted = document.createElement('span');
+      const isKey = token.startsWith('"') && /^\s*:/.test(line.slice(tokenIndex + token.length));
+      highlighted.className = isKey ? 'json-token-key'
+        : token.startsWith('"') ? 'json-token-string'
+          : /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?$/.test(token) ? 'json-token-number'
+            : /^(?:true|false|null)$/.test(token) ? 'json-token-literal'
+              : 'json-token-punctuation';
+      highlighted.textContent = token;
+      renderedLine.append(highlighted);
+      cursor = tokenIndex + token.length;
+    }
+    if (cursor < line.length) renderedLine.append(document.createTextNode(line.slice(cursor)));
+    jsonOutput.append(renderedLine);
+  }
 }
 
 function makeTextCell(value, className = '') {
@@ -448,6 +486,7 @@ function updateDashboard(sites, { isBatch = false } = {}) {
   const uniquePackages = new Set(packages.filter((pkg) => pkg.ecosystem !== 'WordPress').map((pkg) => pkg.name)).size;
   const uniquePlugins = new Set(packages.filter((pkg) => pkg.ecosystem === 'WordPress').map((pkg) => `${pkg.componentType || 'plugin'}:${pkg.slug || pkg.name}`)).size;
   const vulnerabilities = packages.flatMap((pkg) => pkg.vulnerabilities || []);
+  const potentialVulnerabilities = packages.flatMap((pkg) => pkg.potentialVulnerabilities || []);
   const severityCounts = { critical: 0, high: 0, medium: 0, low: 0, unknown: 0 };
   for (const vuln of vulnerabilities) severityCounts[severityDetails(vuln.severity).level || 'unknown']++;
   const pages = sites.reduce((n, site) => n + (site.pages?.filter((page) => page.scanCompleted === true).length || Number(site.report?.pagesScanned) || 0), 0);
@@ -470,19 +509,23 @@ function updateDashboard(sites, { isBatch = false } = {}) {
   completionStatus.classList.toggle('incomplete', !isComplete);
   const completionMark = completionStatus.querySelector('.completion-check');
   completionMark.classList.toggle('is-incomplete', !isComplete);
+  const statusIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  statusIcon.setAttribute('viewBox', '0 0 16 16');
+  statusIcon.setAttribute('aria-hidden', 'true');
   if (isComplete) {
-    if (!completionMark.querySelector('svg')) {
-      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      icon.setAttribute('viewBox', '0 0 16 16');
-      icon.setAttribute('aria-hidden', 'true');
-      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('d', 'm3.5 8.2 3 3 6-6.2');
-      icon.append(path);
-      completionMark.replaceChildren(icon);
-    }
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'm3.5 8.2 3 3 6-6.2');
+    statusIcon.append(path);
   } else {
-    completionMark.textContent = '!';
+    const mark = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    mark.setAttribute('d', 'M8 4v5');
+    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    dot.setAttribute('cx', '8');
+    dot.setAttribute('cy', '11.4');
+    dot.setAttribute('r', '.7');
+    statusIcon.append(mark, dot);
   }
+  completionMark.replaceChildren(statusIcon);
   document.querySelector('#scan-completion-label').textContent = isComplete ? 'Scan completed' : 'Scan incomplete';
   const completedAt = document.querySelector('#scan-completed-at');
   const timestamp = sites.map((site) => site.fetchedAt).filter(Boolean).sort().at(-1);
@@ -511,9 +554,13 @@ function updateDashboard(sites, { isBatch = false } = {}) {
   const riskGaugeNeedle = document.querySelector('#risk-gauge-needle');
   const riskGaugeSvg = document.querySelector('#risk-gauge-svg');
   const riskGaugeCaption = document.querySelector('#risk-gauge-caption');
-  riskHeading.textContent = vulnerabilities.length ? `${vulnerabilities.length} known ${vulnerabilities.length === 1 ? 'vulnerability' : 'vulnerabilities'}` : 'Vulnerability overview';
+  riskHeading.textContent = vulnerabilities.length
+    ? `${vulnerabilities.length} known ${vulnerabilities.length === 1 ? 'vulnerability' : 'vulnerabilities'}`
+    : potentialVulnerabilities.length ? `${potentialVulnerabilities.length} unverified advisories` : 'Vulnerability overview';
   riskSummary.textContent = vulnerabilities.length
     ? 'Version-matched advisories were returned for detected components.'
+    : potentialVulnerabilities.length
+      ? 'Advisories exist for detected component slugs, but installed versions could not be confirmed. They are not counted as vulnerabilities.'
     : sites.some((site) => (site.packages || []).some((pkg) => pkg.vulnerabilityLookup === 'unavailable'))
       ? 'Some vulnerability lookups could not complete; review component lookup status.'
       : packages.length
@@ -531,7 +578,7 @@ function updateDashboard(sites, { isBatch = false } = {}) {
       : severityCounts.unknown >= 3 ? 'medium'
         : severityCounts.unknown > 0 ? 'low' : null;
   const volumeDeterminesRisk = Boolean(volumeRisk && (!severityRisk || riskRanks[volumeRisk] > riskRanks[severityRisk]));
-  const assessedRisk = vulnerabilities.length === 0 ? 'good'
+  const assessedRisk = vulnerabilities.length === 0 ? (potentialVulnerabilities.length ? null : 'good')
     : volumeDeterminesRisk ? volumeRisk
       : severityRisk;
   const gaugeLabels = { good: 'GOOD', critical: 'HIGH RISK', high: 'HIGH', medium: 'MEDIUM', low: 'LOW' };
@@ -543,14 +590,18 @@ function updateDashboard(sites, { isBatch = false } = {}) {
     ? volumeDeterminesRisk
       ? `Site risk: ${gaugeLabels[assessedRisk]}, based on ${severityCounts.unknown} findings without severity data`
       : `Site risk: ${gaugeLabels[assessedRisk]}, highest matched vulnerability severity`
-    : vulnerabilities.length ? 'Site risk is unknown because matched findings have no severity classification' : 'Site risk is good: no matched vulnerabilities reported');
+    : potentialVulnerabilities.length
+      ? 'Site risk is unknown because affected component versions could not be confirmed'
+      : vulnerabilities.length ? 'Site risk is unknown because matched findings have no severity classification' : 'Site risk is good: no matched vulnerabilities reported');
   riskGaugeCaption.textContent = assessedRisk
     ? assessedRisk === 'good'
       ? 'No matched vulnerabilities reported.'
       : volumeDeterminesRisk
         ? `${severityCounts.unknown} findings lack severity data; risk is elevated based on finding volume.`
         : `Highest matched severity across ${vulnerabilities.length} ${vulnerabilities.length === 1 ? 'finding' : 'findings'}.`
-    : vulnerabilities.length ? 'Matched findings do not include a classifiable severity.' : 'No matched vulnerabilities reported.';
+    : potentialVulnerabilities.length
+      ? `${potentialVulnerabilities.length} advisories need installed-version verification.`
+      : vulnerabilities.length ? 'Matched findings do not include a classifiable severity.' : 'No matched vulnerabilities reported.';
   const stack = [...new Map(sites.flatMap((site) => site.technologyStack || []).map((technology) => [`${technology.category}:${technology.name}`, technology])).values()];
   const chips = document.querySelector('#stack-chips');
   chips.replaceChildren();
@@ -635,11 +686,15 @@ function appendPackageLeadRows(site) {
 
 function appendVulnerabilityRows(site, packages) {
   for (const pkg of packages || []) {
-    for (const vuln of pkg.vulnerabilities || []) {
+    const records = [
+      ...(pkg.vulnerabilities || []).map((vuln) => ({ vuln, unverified: false })),
+      ...(pkg.potentialVulnerabilities || []).map((vuln) => ({ vuln, unverified: true })),
+    ];
+    for (const { vuln, unverified } of records) {
       const row = document.createElement('tr');
       row.append(makeTextCell(pkg.name, 'package-name-cell'));
       row.append(makeTextCell(pkg.version || 'unknown', 'technical-value'));
-      const severity = severityDetails(vuln.severity);
+      const severity = unverified ? { level: 'unknown', label: 'Version unverified' } : severityDetails(vuln.severity);
       const severityCell = document.createElement('td');
       const severityBadge = document.createElement('span');
       severityBadge.className = `severity-badge ${severity.level || 'unknown'}`;
@@ -654,6 +709,55 @@ function appendVulnerabilityRows(site, packages) {
       vulnerabilityTableBody.append(row);
     }
   }
+  for (const finding of site.securityAssessment?.findings || []) {
+    const row = document.createElement('tr');
+    row.append(makeTextCell(finding.category || 'Security check', 'package-name-cell'));
+    row.append(makeTextCell('—', 'technical-value'));
+    const severity = severityDetails(finding.severity);
+    const severityCell = document.createElement('td');
+    const severityBadge = document.createElement('span');
+    severityBadge.className = `severity-badge ${severity.level || 'unknown'}`;
+    severityBadge.textContent = severity.label;
+    severityCell.append(severityBadge); row.append(severityCell);
+    const titleCell = makeTextCell(finding.title || finding.id || 'Security observation');
+    if (finding.url) {
+      const link = document.createElement('a'); link.href = finding.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      link.textContent = finding.title || finding.id || 'Evidence URL'; titleCell.replaceChildren(link);
+    }
+    row.append(titleCell);
+    row.append(makeTextCell(finding.detail || finding.evidence || 'Read-only security observation'));
+    row.append(makeTextCell(finding.evidence || site.securityAssessment.methodology || 'Passive check', 'evidence-cell'));
+    vulnerabilityTableBody.append(row);
+  }
+  for (const check of site.securityAssessment?.notTested || []) {
+    const row = document.createElement('tr');
+    row.append(makeTextCell(check.category, 'package-name-cell'));
+    row.append(makeTextCell('—', 'technical-value'));
+    const statusCell = document.createElement('td');
+    const status = document.createElement('span'); status.className = 'severity-badge unknown'; status.textContent = 'Not tested';
+    statusCell.append(status); row.append(statusCell);
+    row.append(makeTextCell(`${check.category} active testing`));
+    row.append(makeTextCell(check.reason));
+    row.append(makeTextCell(site.securityAssessment.methodology, 'evidence-cell'));
+    vulnerabilityTableBody.append(row);
+  }
+}
+
+function updateVulnerabilityResultCount(sites, hasIncompleteSites) {
+  if (hasIncompleteSites) {
+    vulnerabilityResultsCount.textContent = 'Unavailable';
+    return;
+  }
+  const confirmed = sites.reduce((count, site) => count + (site.packages || []).reduce((sum, pkg) => sum + (pkg.vulnerabilities || []).length, 0), 0);
+  const unverified = sites.reduce((count, site) => count + (site.packages || []).reduce((sum, pkg) => sum + (pkg.potentialVulnerabilities || []).length, 0), 0);
+  const checks = sites.reduce((count, site) => count + (site.securityAssessment?.findings || []).length, 0);
+  const notTested = sites.reduce((count, site) => count + (site.securityAssessment?.notTested || []).length, 0);
+  vulnerabilityResultsCount.textContent = [
+    `${confirmed} confirmed`,
+    ...(unverified ? [`${unverified} unverified`] : []),
+    ...(checks ? [`${checks} passive checks`] : []),
+    ...(notTested ? [`${notTested} not tested`] : []),
+  ].join(' · ');
 }
 
 function severityDetails(value) {
@@ -664,6 +768,7 @@ function severityDetails(value) {
     const level = upper === 'MODERATE' ? 'medium' : upper.toLowerCase();
     return { level, label: upper === 'MODERATE' ? 'Medium' : upper };
   }
+  if (upper === 'INFO' || upper === 'INFORMATIONAL') return { level: 'info', label: 'Informational' };
   const score = Number(text);
   if (!Number.isFinite(score)) return { level: 'unknown', label: 'Unknown severity' };
   const level = score >= 9 ? 'critical' : score >= 7 ? 'high' : score >= 4 ? 'medium' : 'low';
@@ -707,7 +812,7 @@ function renderLiveSiteResult(event) {
   appendVulnerabilityRows(site, site.packages || []);
   appendPages(site);
   const hasIncompleteSites = liveSiteData.some((result) => result.reportEligible !== true);
-  vulnerabilityResultsCount.textContent = hasIncompleteSites ? 'Unavailable' : `${vulnerabilityTableBody.children.length} findings`;
+  updateVulnerabilityResultCount(liveSiteData, hasIncompleteSites);
   technologyResultsCount.textContent = `${completedTechnologyCount} detected`;
   packageLeadsCount.textContent = `${completedPackageLeadCount} leads`;
   packageResultsCount.textContent = hasIncompleteSites ? 'Unavailable' : `${completedPackageCount} ${completedPackageCount === 1 ? 'dependency' : 'dependencies'}`;
@@ -745,7 +850,7 @@ function present(resultsData, { isBatch = false, output } = {}) {
   packageResultsCount.textContent = hasIncompleteSites ? 'Unavailable' : `${completedPackageCount} ${completedPackageCount === 1 ? 'dependency' : 'dependencies'}`;
   technologyResultsCount.textContent = `${completedTechnologyCount} detected`;
   packageLeadsCount.textContent = `${completedPackageLeadCount} leads`;
-  vulnerabilityResultsCount.textContent = hasIncompleteSites ? 'Unavailable' : `${vulnerabilityTableBody.children.length} findings`;
+  updateVulnerabilityResultCount(sites, hasIncompleteSites);
   if (!vulnerabilityTableBody.children.length) {
     const row = document.createElement('tr');
     const lookupUnavailable = sites.some((site) => (site.packages || []).some((pkg) => pkg.vulnerabilityLookup === 'unavailable'));
@@ -778,7 +883,7 @@ function present(resultsData, { isBatch = false, output } = {}) {
   downloadButton.classList.toggle('hidden', !isBatch || !hasReport);
   document.querySelector('#json-title').textContent = isBatch ? 'JSON reports · completed URLs' : 'JSON report';
   currentJson = hasReport ? JSON.stringify(outputValue, null, 2) : '';
-  jsonOutput.textContent = currentJson;
+  renderJsonReport(currentJson);
   const packageCount = sites.reduce((total, site) => total + (Number(site.packageCount) || site.packages?.length || 0), 0);
   const pageCount = sites.reduce((total, site) => total + (Number(site.report?.pagesScanned) || site.pages?.filter((page) => page.scanCompleted === true).length || 0), 0);
   const scanMode = sites.some((site) => site.scanMode === 'shallow') ? 'Shallow' : 'Deep';
@@ -857,14 +962,49 @@ document.querySelector('#batch-form').addEventListener('submit', async (event) =
 
 downloadButton.addEventListener('click', downloadCurrentReport);
 
+async function copyText(text) {
+  if (window.webScanDesktop?.copyText) {
+    await window.webScanDesktop.copyText(text);
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+    return;
+  } catch (_) {
+    // Fall through for browsers that deny the async clipboard API.
+  }
+
+  const activeElement = document.activeElement;
+  const selection = window.getSelection();
+  const ranges = [];
+  if (selection) for (let index = 0; index < selection.rangeCount; index++) ranges.push(selection.getRangeAt(index).cloneRange());
+  const temporaryInput = document.createElement('textarea');
+  temporaryInput.value = text;
+  temporaryInput.setAttribute('readonly', '');
+  temporaryInput.setAttribute('aria-hidden', 'true');
+  temporaryInput.style.cssText = 'position:fixed;inset:0 auto auto 0;width:1px;height:1px;padding:0;border:0;opacity:0;pointer-events:none;';
+  document.body.append(temporaryInput);
+  temporaryInput.focus({ preventScroll: true });
+  temporaryInput.select();
+  temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+  const copied = document.execCommand('copy');
+  temporaryInput.remove();
+  if (activeElement instanceof HTMLElement && activeElement.isConnected) activeElement.focus({ preventScroll: true });
+  if (selection) {
+    selection.removeAllRanges();
+    for (const range of ranges) selection.addRange(range);
+  }
+  if (!copied) throw new Error('Clipboard copy command was rejected.');
+}
+
 document.querySelector('#copy-json').addEventListener('click', async (event) => {
   if (!currentJson) return;
   try {
-    await navigator.clipboard.writeText(currentJson);
+    await copyText(currentJson);
     event.currentTarget.textContent = 'Copied';
     setTimeout(() => { event.currentTarget.textContent = 'Copy JSON'; }, 1500);
   } catch (_) {
-    showNotice('Clipboard access is unavailable in this browser. Select and copy the JSON output.');
+    showNotice('Could not copy the JSON to the clipboard. Select the report text and copy it manually.');
   }
 });
 

@@ -6,6 +6,7 @@ const { mergeEvidence } = require('./inference/merge');
 const { normalizeKey } = require('./inference/naming');
 const { throwIfAborted, isAbortError } = require('./util/abort');
 const { detectWordPress, enrichVulnerabilities } = require('./vulnerabilities');
+const { checkWordPressExposure } = require('./wordpress-security-checks');
 
 async function scanRenderedPage(renderedPage, options) {
   throwIfAborted(options.signal);
@@ -53,6 +54,7 @@ async function scanRenderedPage(renderedPage, options) {
       bundler,
       frameworkReason,
       technologyStack,
+      tlsValidationBypassed: Boolean(renderedPage.tlsValidationBypassed),
       assetsDiscovered: renderedPage.assetCount || 0,
       scriptsDiscovered: renderedPage.scriptsDiscovered || 0,
       dashboardChecked: true,
@@ -159,6 +161,13 @@ async function analyzeSite(target, options = {}) {
   } finally {
     sharedRegistryCache?.close?.();
   }
+  for (const page of pages) {
+    if (page.tlsValidationBypassed) {
+      const warning = `TLS certificate validation failed for ${page.finalUrl || page.url}; this scan continued with certificate checks disabled for that site or its assets.`;
+      crawl.warnings ||= [];
+      if (!crawl.warnings.includes(warning)) crawl.warnings.push(warning);
+    }
+  }
   console.log('[debun-plus:analysis] crawl finished', {
     url: crawl.requestedUrl || String(target),
     pagesVisited: pages.length,
@@ -193,6 +202,9 @@ async function analyzeSite(target, options = {}) {
   for (const page of pages) for (const pkg of page.packages || []) {
     if (pkg.ecosystem === 'WordPress' && !wordpressPackages.some((item) => item.componentType === pkg.componentType && item.slug === pkg.slug)) wordpressPackages.push(pkg);
   }
+  const securityAssessment = wordpressPackages.length
+    ? await checkWordPressExposure(crawl.finalUrl || String(target), { signal: options.signal })
+    : null;
   const packages = await enrichVulnerabilities([...detectedPackages, ...wordpressPackages], { signal: options.signal });
   const verifiedPackageNames = new Set(packages.map((pkg) => normalizeKey(pkg.name)));
   const packageLeadMap = new Map();
@@ -274,7 +286,16 @@ async function analyzeSite(target, options = {}) {
       status: pkg.vulnerabilityStatus,
       ...vulnerability,
     }))),
+    securityAssessment,
+    potentialAdvisories: packages.flatMap((pkg) => (pkg.potentialVulnerabilities || []).map((advisory) => ({
+      package: pkg.name,
+      version: pkg.version || 'unknown',
+      ecosystem: pkg.ecosystem || 'npm',
+      status: 'version-unverified',
+      ...advisory,
+    }))),
     vulnerabilitySources: ['OSV.dev', 'WPVulnerability'],
+    warnings: crawl.warnings || [],
   } : null;
   console.log('[debun-plus:analysis] report status', {
     url: crawl.requestedUrl || String(target),
@@ -299,7 +320,9 @@ async function analyzeSite(target, options = {}) {
     reportEligible,
     reportReason,
     report,
+    securityAssessment,
     ...(reason ? { reason } : {}),
+    warnings: crawl.warnings || [],
     crawl: {
       pagesVisited: pages.length,
       linksDiscovered: crawl.discoveredCount,

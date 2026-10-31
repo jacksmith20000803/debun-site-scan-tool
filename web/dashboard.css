@@ -141,7 +141,7 @@ footer a { font-size:11px; }
 .risk-segment { min-width:2px; border-radius:0!important; }
 .risk-segment.critical { background:#fb5472; }.risk-segment.high { background:#ff824d; }.risk-segment.medium { background:#f4b840; }.risk-segment.low { background:#34cda3; }.risk-segment.unknown { background:#7789a8; }
 .severity-badge { display:inline-flex; align-items:center; min-height:24px; padding:3px 8px; border:1px solid currentColor; border-radius:999px; font-size:11px; font-weight:650; white-space:nowrap; }
-.severity-badge.critical { color:#ff7187; background:#361927; }.severity-badge.high { color:#ff986b; background:#382316; }.severity-badge.medium { color:#f4c45a; background:#332c18; }.severity-badge.low { color:#4bd5ad; background:#123128; }.severity-badge.unknown { color:#b0bfd6; background:#19263b; }
+.severity-badge.critical { color:#ff7187; background:#361927; }.severity-badge.high { color:#ff986b; background:#382316; }.severity-badge.medium { color:#f4c45a; background:#332c18; }.severity-badge.low { color:#4bd5ad; background:#123128; }.severity-badge.info { color:#74b8ff; background:#102846; }.severity-badge.unknown { color:#b0bfd6; background:#19263b; }
 .risk-meter-caption { margin-top:8px!important; font-size:11px!important; }
 .stack-chips { display:grid; gap:8px; }
 .stack-empty { margin:0; padding:12px; border:1px dashed #29436c; border-radius:10px; color:#9bb1d2; font-size:12px; }
@@ -351,8 +351,8 @@ footer a { font-size:11px; }
 
 /* Scan result controls and metadata use the same compact line icon system. */
 .completion-check { width:18px; height:18px; border-width:1.5px; font-size:0; }
-.completion-check.is-incomplete { font-size:11px; }
 .completion-check svg { width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.completion-check.is-incomplete svg circle { fill:currentColor; stroke:none; }
 .results-actions .secondary-button { display:inline-flex; align-items:center; justify-content:center; }
 .button-icon { width:16px; height:16px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 .summary-card:nth-child(1) .summary-label { color:#84b8ff; }
@@ -485,4 +485,23 @@ footer a { font-size:11px; }
 
 @media (prefers-reduced-motion:reduce) {
   .summary-card { transition:none; }
+}
+
+/* VS Code-style report viewer with selectable JSON and a pinned line gutter. */
+.results-primary > .json-panel:not(.hidden) { min-height:420px; }
+.json-code-scroll { display:grid; width:100%; min-height:0; flex:1 1 0; grid-template-columns:52px max-content; align-content:start; overflow:auto; overscroll-behavior:contain; background:#061226; scrollbar-gutter:stable; }
+.json-line-numbers { position:sticky; z-index:1; left:0; align-self:stretch; min-width:52px; padding:14px 10px 14px 0; border-right:1px solid #213653; background:#09172c; color:#7287a5; font:12px/1.7 var(--font-mono); text-align:right; user-select:none; }
+.json-line-number { display:block; height:1.7em; }
+.json-panel pre,.results-primary > .json-panel:not(.hidden) pre { width:max-content; min-width:100%; height:auto; min-height:0; max-height:none; flex:none; margin:0; padding:14px 18px; overflow:visible; background:transparent; color:#d6e2f3; font:13px/1.7 var(--font-mono); white-space:pre; }
+.json-code-line { display:block; height:1.7em; line-height:1.7; }
+.json-token-key { color:#9cdcfe; }
+.json-token-string { color:#ce9178; }
+.json-token-number { color:#b5cea8; }
+.json-token-literal { color:#569cd6; }
+.json-token-punctuation { color:#d4d4d4; }
+.json-code-scroll:focus-visible { outline:2px solid #4b9cff; outline-offset:-2px; }
+@media (max-width:767px) {
+  .json-line-numbers { min-width:42px; padding-right:8px; font-size:11px; }
+  .json-code-scroll { grid-template-columns:42px max-content; }
+  .json-panel pre,.results-primary > .json-panel:not(.hidden) pre { padding-right:12px; padding-left:12px; font-size:12px; }
 }

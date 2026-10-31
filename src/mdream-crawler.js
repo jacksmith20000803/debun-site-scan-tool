@@ -155,6 +155,7 @@ async function fetchNavigationHtml(url, ofetch, options = {}) {
       html,
       transport: 'undici',
       headers: response.headers || {},
+      tlsValidationBypassed: false,
     };
   } catch (error) {
     if (isAbortError(error, options.signal)) throw error;
@@ -186,6 +187,7 @@ async function fetchNavigationHtml(url, ofetch, options = {}) {
       html: response.body,
       transport: 'axios',
       headers: response.headers || {},
+      tlsValidationBypassed: Boolean(response.tlsValidationBypassed),
     };
   } catch (axiosError) {
     if (isAbortError(axiosError, options.signal)) throw axiosError;
@@ -576,6 +578,7 @@ function createBrowserHtmlRenderer(launchPlaywright, ofetch, options = {}) {
     let navigationUrl = requestedUrl;
     let suppliedHtml = null;
     let navigationHeaders = {};
+    let tlsValidationBypassed = false;
     let sourceServed = false;
     const page = await openPage();
     const scriptCapture = capturePageScripts(page, options.maxScripts);
@@ -607,6 +610,7 @@ function createBrowserHtmlRenderer(launchPlaywright, ofetch, options = {}) {
         throwIfAborted(options.signal);
         navigationUrl = normalizeUrl(fetched.finalUrl || requestedUrl).toString();
         navigationHeaders = fetched.headers || {};
+        tlsValidationBypassed = Boolean(fetched.tlsValidationBypassed);
         const $ = cheerio.load(fetched.html);
         $('head').prepend($('<base>').attr('href', navigationUrl));
         suppliedHtml = $.html();
@@ -617,6 +621,11 @@ function createBrowserHtmlRenderer(launchPlaywright, ofetch, options = {}) {
         // `commit` returns as soon as Playwright installs the HTML, even if a
         // remote subresource later stalls.
         response = null;
+        // If the failed HTTPS document installed a strict Trusted Types CSP,
+        // Playwright's setContent() document.write is rejected. Reset to a
+        // clean about:blank document first; the fetched document's base URL is
+        // already injected above so its relative assets still resolve.
+        await page.goto('about:blank', { waitUntil: 'commit', timeout: Math.min(timeout, 5000) });
         await page.setContent(suppliedHtml, { waitUntil: 'commit', timeout: Math.min(timeout, 5000) });
       }
 
@@ -630,6 +639,7 @@ function createBrowserHtmlRenderer(launchPlaywright, ofetch, options = {}) {
         title: await page.title(),
         html: await page.content(),
         externalScripts: [...scriptCapture.sources.values()],
+        tlsValidationBypassed,
       };
       console.log('[debun-plus:crawl] direct browser render complete', {
         url: rendered.url,
@@ -673,7 +683,7 @@ function createScriptLoader(options) {
       throwIfAborted(options.signal);
       const response = await fetchText(script.url, { timeout, maxBytes: MAX_SINGLE_SCRIPT_BYTES, signal: options.signal });
       return response && response.text
-        ? { url: response.url || script.url, code: response.text, contentType: response.contentType || '' }
+        ? { url: response.url || script.url, code: response.text, contentType: response.contentType || '', tlsValidationBypassed: Boolean(response.tlsValidationBypassed) }
         : null;
     });
     cache.set(script.url, pending);
@@ -734,6 +744,7 @@ async function makeRenderedPage(pageData, depth, loadScript, options = {}) {
     scriptBudget,
     technology,
     technologyStack,
+    tlsValidationBypassed: Boolean(pageData.tlsValidationBypassed || scriptBudget.externalScripts.some((source) => source.tlsValidationBypassed)),
     assetCount: extracted.scripts.length + extracted.assets.length + capturedScripts.length,
     scriptsDiscovered: Math.max(extracted.scripts.length, capturedScripts.length),
     headers: pageData.headers || options.responseHeaders || {},
@@ -864,6 +875,7 @@ async function crawlSiteWithMdream(startUrl, options = {}) {
         title: rendered.title,
         html: rendered.html,
         externalScripts: rendered.externalScripts || [],
+        tlsValidationBypassed: Boolean(rendered.tlsValidationBypassed),
         metadata: { title: rendered.title, links },
       };
       for (const link of links) discoveredLinks.add(pageKey(link));
@@ -922,6 +934,7 @@ async function crawlSiteWithMdream(startUrl, options = {}) {
           title: rendered.title,
           html: rendered.html,
           externalScripts: rendered.externalScripts || [],
+          tlsValidationBypassed: Boolean(rendered.tlsValidationBypassed),
           metadata: {
             title: rendered.title,
             links: extractPageLinks(rendered.html, resolvedUrl),

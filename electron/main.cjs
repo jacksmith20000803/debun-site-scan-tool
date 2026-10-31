@@ -2,7 +2,7 @@
 
 const path = require('node:path');
 const fs = require('node:fs');
-const { app, BrowserWindow, dialog, shell } = require('electron');
+const { app, BrowserWindow, clipboard, dialog, ipcMain, shell } = require('electron');
 
 // Scanner installations run on machines that may not have a usable GPU driver.
 // Use Chromium's software renderer so a graphics-process failure cannot close
@@ -24,6 +24,15 @@ let mainWindow;
 let backendServer;
 let appUrl;
 let desktopLogPath;
+
+ipcMain.handle('webscan:copy-text', (event, value) => {
+  if (!mainWindow || event.sender !== mainWindow.webContents) {
+    throw new Error('Clipboard requests are only available to the WebScan window.');
+  }
+  if (typeof value !== 'string') throw new TypeError('Clipboard content must be text.');
+  clipboard.writeText(value);
+  return true;
+});
 
 function formatLogValue(value) {
   if (value instanceof Error) return value.stack || value.message;
@@ -81,6 +90,7 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
+      preload: path.join(__dirname, 'preload.cjs'),
     },
   });
 
