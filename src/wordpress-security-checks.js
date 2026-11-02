@@ -18,8 +18,8 @@ function safeSameOriginUrl(base, pathname) {
   return target;
 }
 
-async function readOnlyGet(url, signal) {
-  const response = await client.get(url.href, { signal, responseType: 'text' });
+async function readOnlyGet(url, signal, headers = {}) {
+  const response = await client.get(url.href, { signal, responseType: 'text', headers });
   return {
     status: response.status,
     contentType: String(response.headers?.['content-type'] || ''),
@@ -28,8 +28,8 @@ async function readOnlyGet(url, signal) {
   };
 }
 
-/** Safe, read-only WordPress exposure checks. No exploit payloads or writes. */
-async function checkWordPressExposure(baseUrl, options = {}) {
+/** Safe, read-only website checks. No exploit payloads, form submissions, or writes. */
+async function checkSiteSecurity(baseUrl, options = {}) {
   const findings = [];
   const checks = [];
   const add = (id, category, severity, title, detail, evidence, url) => findings.push({ id, category, severity, title, detail, evidence, url });
@@ -48,7 +48,7 @@ async function checkWordPressExposure(baseUrl, options = {}) {
     }
   };
 
-  await run('wordpress-rest-users-public', '/wp-json/wp/v2/users?per_page=3&_fields=id,name,slug,link', (response, url) => {
+  if (options.includeWordPress && options.includeSiteWideChecks !== false) await run('wordpress-rest-users-public', '/wp-json/wp/v2/users?per_page=3&_fields=id,name,slug,link', (response, url) => {
     if (response.status !== 200 || !/json/i.test(response.contentType)) return null;
     let users;
     try { users = JSON.parse(response.body); } catch (_) { return null; }
@@ -60,7 +60,7 @@ async function checkWordPressExposure(baseUrl, options = {}) {
     };
   });
 
-  await run('wordpress-xmlrpc-exposed', '/xmlrpc.php', (response, url) => {
+  if (options.includeWordPress && options.includeSiteWideChecks !== false) await run('wordpress-xmlrpc-exposed', '/xmlrpc.php', (response, url) => {
     const body = response.body.toLowerCase();
     if (!([200, 405].includes(response.status) && /xml-rpc|xmlrpc|method.*post/i.test(body))) return null;
     return {
@@ -76,15 +76,47 @@ async function checkWordPressExposure(baseUrl, options = {}) {
     ['x-content-type-options', 'X-Content-Type-Options'],
     ['referrer-policy', 'Referrer-Policy'],
   ];
-  try {
-    const root = safeSameOriginUrl(baseUrl, '/');
-    const response = await readOnlyGet(root, options.signal);
+  const inspectHeaders = (response, root, canProbeCors) => {
     for (const [header, label] of headerChecks) {
       checks.push({ id: `header-${header}`, status: response.headers[header] ? 'present' : 'missing', url: root.href });
       if (!response.headers[header]) add(`missing-${header}`, 'Security headers', 'info', `${label} header is absent`, `The public response did not include ${label}. Missing headers are hardening observations and do not alone prove a vulnerability.`, `Header not present on HTTP ${response.status} response.`, root.href);
     }
-  } catch (error) {
-    checks.push({ id: 'security-headers', status: 'unavailable', detail: error.message });
+    const allowOrigin = String(response.headers['access-control-allow-origin'] || '').trim();
+    const allowCredentials = String(response.headers['access-control-allow-credentials'] || '').trim().toLowerCase() === 'true';
+    if (allowOrigin === '*' || (canProbeCors && allowOrigin === 'https://webscan.invalid')) {
+      const reflected = allowOrigin === 'https://webscan.invalid';
+      const severity = reflected && allowCredentials ? 'low' : 'info';
+      checks.push({ id: 'cors-untrusted-origin', status: 'finding', url: root.href });
+      add('cors-untrusted-origin', 'CORS policy', severity,
+        reflected ? 'CORS reflects an arbitrary origin' : 'CORS allows any origin',
+        reflected && allowCredentials
+          ? 'The response reflects an arbitrary Origin and allows credentials. Review whether sensitive authenticated responses share this policy; this root-page probe alone does not confirm data exposure.'
+          : 'The probed response is readable cross-origin for public content. This is not by itself a vulnerability unless sensitive data is exposed under the same policy.',
+        `Access-Control-Allow-Origin: ${allowOrigin}${allowCredentials ? '; Access-Control-Allow-Credentials: true' : ''}.`, root.href);
+    } else checks.push({ id: 'cors-untrusted-origin', status: canProbeCors ? 'not-detected' : 'not-tested', url: root.href });
+  };
+  if (options.includeSiteWideChecks === false && options.responseHeaders) {
+    const pageUrl = safeSameOriginUrl(baseUrl, baseUrl);
+    inspectHeaders({ headers: options.responseHeaders, status: options.responseStatus || 200 }, pageUrl, false);
+  } else {
+    try {
+      const root = safeSameOriginUrl(baseUrl, options.includeSiteWideChecks === false ? baseUrl : '/');
+      const response = await readOnlyGet(root, options.signal, { Origin: 'https://webscan.invalid' });
+      inspectHeaders(response, root, true);
+    } catch (error) {
+      checks.push({ id: 'security-headers', status: 'unavailable', detail: error.message });
+    }
+  }
+
+  if (options.includeSiteWideChecks !== false) {
+    await run('security-txt-missing', '/.well-known/security.txt', (response, url) => {
+      if (response.status === 200 && /^\s*Contact:\s*\S+/im.test(response.body)) return null;
+      return {
+        category: 'Security contact', severity: 'info', title: 'security.txt was not found',
+        detail: 'No valid security.txt Contact directive was available at the standard path. Publishing one helps researchers report security issues; its absence is not an exploitable vulnerability.',
+        evidence: `HTTP ${response.status} from ${url.pathname}.`,
+      };
+    });
   }
 
   return {
@@ -96,8 +128,14 @@ async function checkWordPressExposure(baseUrl, options = {}) {
       { category: 'Command injection', status: 'not-tested', reason: 'No shell metacharacters or execution payloads are submitted.' },
       { category: 'XXE', status: 'not-tested', reason: 'No crafted XML or external-entity payloads are submitted.' },
     ],
-    methodology: 'Passive, unauthenticated, same-origin GET checks only. Findings describe observable exposure and require human review; they are not exploit confirmation.',
+    methodology: options.includeSiteWideChecks === false
+      ? 'Passive assessment uses the submitted page response headers only. No extra paths or requests are used; CORS is not actively probed. No exploit payloads, form submissions, or writes. Findings describe observable exposure and require human review; they are not exploit confirmation.'
+      : 'Passive, unauthenticated, same-origin GET checks only (root headers/CORS and security.txt; WordPress REST users and XML-RPC when detected). No exploit payloads, form submissions, or writes. Findings describe observable exposure and require human review; they are not exploit confirmation.',
   };
 }
 
-module.exports = { checkWordPressExposure };
+async function checkWordPressExposure(baseUrl, options = {}) {
+  return checkSiteSecurity(baseUrl, { ...options, includeWordPress: true });
+}
+
+module.exports = { checkSiteSecurity, checkWordPressExposure };

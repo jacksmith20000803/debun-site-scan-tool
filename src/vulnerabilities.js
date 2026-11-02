@@ -30,17 +30,27 @@ function uniqueBy(items, keyOf) {
 /** Public-page detection only. WordPress asset `?ver=` values are cache keys, not reliable installed versions. */
 function detectWordPress(html = '', baseUrl = '') {
   const found = new Map();
-  const add = (type, slug, version, evidence, versionHint = null) => {
+  const add = (type, slug, version, evidence, versionHint = null, versionHintSource = null) => {
     slug = String(slug || '').toLowerCase();
     if (!/^[a-z0-9][a-z0-9._-]{0,99}$/.test(slug)) return;
     const key = `${type}:${slug}`;
-    const item = found.get(key) || { name: slug, slug, version: null, versionHint: null, ecosystem: 'WordPress', componentType: type, evidence: [] };
-    if (version && (!item.version || item.version === 'unknown')) item.version = version;
-    if (versionHint && !item.versionHint) item.versionHint = versionHint;
+    const item = found.get(key) || { name: slug, slug, version: null, versionSource: null, versionConflict: false, versionHint: null, versionHintSource: null, versionHintCandidates: [], ecosystem: 'WordPress', componentType: type, evidence: [] };
+    if (version && item.version && item.version !== version) {
+      item.version = null;
+      item.versionConflict = true;
+      item.versionSource = 'conflicting exact version signals';
+    } else if (version && !item.version && !item.versionConflict) {
+      item.version = version;
+      item.versionSource = evidence;
+    }
+    if (versionHint && !item.versionHintCandidates.includes(versionHint)) item.versionHintCandidates.push(versionHint);
+    if (versionHint && versionHintSource && !item.versionHintSource) item.versionHintSource = versionHintSource;
     if (evidence && !item.evidence.includes(evidence)) item.evidence.push(evidence);
     found.set(key, item);
   };
-  const text = String(html);
+  // Browsers decode these entities before requesting assets; normalize them so
+  // version parameters are detected consistently from serialized HTML.
+  const text = String(html).replace(/&amp;/gi, '&');
   if (/\/wp-content\/(?:plugins|themes)\/|\/wp-includes\//i.test(text) || /name=["']generator["'][^>]*wordpress/i.test(text)) {
     const generator = /name=["']generator["'][^>]*content=["'][^"']*WordPress\s*([\d.]+)/i.exec(text) || /content=["'][^"']*WordPress\s*([\d.]+)[^"']*["'][^>]*name=["']generator["']/i.exec(text);
     if (generator) add('core', 'wordpress', generator[1], 'generator-meta');
@@ -48,9 +58,23 @@ function detectWordPress(html = '', baseUrl = '') {
   // URLs are commonly HTML-escaped or relative; this catches paths without an absolute host.
   for (const m of text.matchAll(/\/wp-content\/(plugins|themes)\/([^/?#"'<>]+)\/[^\s"'<>]*/gi)) {
     const version = /[?&]ver=([\w.+-]+)/i.exec(m[0]);
-    add(m[1] === 'plugins' ? 'plugin' : 'theme', m[2], null, 'public-asset-url', version?.[1] || null);
+    add(m[1] === 'plugins' ? 'plugin' : 'theme', m[2], null, 'public-asset-url', version?.[1] || null, version ? 'plugin-or-theme-asset-query' : null);
   }
-  return [...found.values()];
+  // Core assets commonly carry the WordPress release in their `ver` query.
+  // Keep this separate from `version`: it is useful to display, but can be a
+  // cache key and must not be used as a verified installed version for CVEs.
+  for (const m of text.matchAll(/\/wp-includes\/[^\s"'<>?#]+(?:\?[^\s"'<>#]*)?/gi)) {
+    const version = /[?&]ver=([\w.+-]+)/i.exec(m[0]);
+    if (version && /^\d+(?:\.\d+){1,2}(?:[-+][\w.-]+)?$/.test(version[1])) {
+      add('core', 'wordpress', null, 'core-asset-url', version[1], 'wordpress-core-asset-query');
+    }
+  }
+  return [...found.values()].map((item) => {
+    if (item.versionHintCandidates.length === 1) item.versionHint = item.versionHintCandidates[0];
+    else if (item.versionHintCandidates.length > 1) item.versionHintSource = 'conflicting asset version hints';
+    delete item.versionHintCandidates;
+    return item;
+  });
 }
 
 async function lookupWordPress(component) {

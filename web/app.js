@@ -204,7 +204,11 @@ async function finishJob(job) {
     return;
   }
   if (job.siteResults?.length) {
-    present(job.siteResults, { isBatch: job.kind === 'batch' });
+    present(job.siteResults, { isBatch: job.kind === 'batch', scanState: job.status === 'stopped' ? 'stopped' : 'incomplete' });
+  } else if (job.status === 'stopped') {
+    updateDashboard([], { scanState: 'stopped' });
+  } else if (job.error) {
+    updateDashboard([], { scanState: 'incomplete' });
   }
   if (job.status === 'stopped') {
     progressLabel.textContent = 'Scan stopped';
@@ -227,6 +231,7 @@ async function monitorJob(id, initialJob) {
       } catch (error) {
         rememberJob(null);
         setBusy(false);
+        updateDashboard(liveSiteData, { scanState: 'incomplete' });
         showNotice(error.message);
         return;
       }
@@ -352,6 +357,7 @@ function beginResults() {
   jsonLineNumbers.replaceChildren();
   currentJson = '';
   downloadButton.classList.add('hidden');
+  updateDashboard([], { scanState: 'running' });
   document.querySelector('#save-report-button').disabled = true;
   results.classList.remove('hidden');
 }
@@ -454,6 +460,19 @@ function evidenceText(pkg) {
   return [...new Set(values)].join(', ') || (pkg.declared ? 'Declared dependency' : 'Bundle fingerprint');
 }
 
+function packageVersionText(pkg) {
+  return detectedVersionText(pkg);
+}
+
+function detectedVersionText(item) {
+  if (item.version) return item.version;
+  if (item.versionConflict || item.versionSource === 'conflicting exact version signals') return 'Conflicting exact version signals';
+  if (item.versionHint) return `${item.versionHint} · asset hint (unverified)`;
+  if (item.versionHintSource === 'conflicting asset version hints' || item.versionHintConflict) return 'Conflicting asset version hints';
+  if (item.declaredRanges?.length) return `declared ${item.declaredRanges.join(', ')}`;
+  return 'unknown';
+}
+
 function appendPackageRows(site, packages) {
   for (const pkg of packages || []) {
     const isPlugin = pkg.ecosystem === 'WordPress';
@@ -462,7 +481,7 @@ function appendPackageRows(site, packages) {
     siteCell.title = site.url || site.finalUrl || '';
     row.append(siteCell);
     row.append(makeTextCell(pkg.name, 'package-name-cell'));
-    row.append(makeTextCell(pkg.version || pkg.versionHint ? (pkg.version || `unknown (asset hint ${pkg.versionHint})`) : (pkg.declaredRanges?.length ? `declared ${pkg.declaredRanges.join(', ')}` : 'unknown'), 'technical-value'));
+    row.append(makeTextCell(packageVersionText(pkg), 'technical-value'));
     if (isPlugin) row.append(makeTextCell(pkg.componentType || 'plugin'));
     else {
       const tierCell = document.createElement('td');
@@ -481,7 +500,7 @@ function appendPackageRows(site, packages) {
   }
 }
 
-function updateDashboard(sites, { isBatch = false } = {}) {
+function updateDashboard(sites, { isBatch = false, scanState = 'complete' } = {}) {
   const packages = sites.flatMap((site) => site.packages || []);
   const uniquePackages = new Set(packages.filter((pkg) => pkg.ecosystem !== 'WordPress').map((pkg) => pkg.name)).size;
   const uniquePlugins = new Set(packages.filter((pkg) => pkg.ecosystem === 'WordPress').map((pkg) => `${pkg.componentType || 'plugin'}:${pkg.slug || pkg.name}`)).size;
@@ -505,7 +524,7 @@ function updateDashboard(sites, { isBatch = false } = {}) {
     summaryUrl.removeAttribute('href');
   }
   const completionStatus = document.querySelector('#scan-completion-status');
-  const isComplete = sites.length > 0 && sites.every((site) => site.scanCompleted === true && site.reportEligible === true);
+  const isComplete = scanState === 'complete' && sites.length > 0 && sites.every((site) => site.scanCompleted === true && site.reportEligible === true);
   completionStatus.classList.toggle('incomplete', !isComplete);
   const completionMark = completionStatus.querySelector('.completion-check');
   completionMark.classList.toggle('is-incomplete', !isComplete);
@@ -526,9 +545,13 @@ function updateDashboard(sites, { isBatch = false } = {}) {
     statusIcon.append(mark, dot);
   }
   completionMark.replaceChildren(statusIcon);
-  document.querySelector('#scan-completion-label').textContent = isComplete ? 'Scan completed' : 'Scan incomplete';
+  const completionLabel = scanState === 'running' ? 'Scan in progress'
+    : scanState === 'stopped' ? 'Scan stopped'
+      : isComplete ? 'Scan completed'
+        : sites.length ? 'Scan incomplete' : 'Waiting for scan';
+  document.querySelector('#scan-completion-label').textContent = completionLabel;
   const completedAt = document.querySelector('#scan-completed-at');
-  const timestamp = sites.map((site) => site.fetchedAt).filter(Boolean).sort().at(-1);
+  const timestamp = isComplete ? sites.map((site) => site.fetchedAt).filter(Boolean).sort().at(-1) : null;
   const completedDate = timestamp ? new Date(timestamp) : null;
   completedAt.textContent = completedDate && !Number.isNaN(completedDate.valueOf())
     ? new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(completedDate)
@@ -613,7 +636,12 @@ function updateDashboard(sites, { isBatch = false } = {}) {
     icon.innerHTML = '<svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="m3.5 7.2 8.5 5 8.5-5M12 12.2V22"/></svg>';
     const copy = document.createElement('span'); copy.className = 'stack-chip-copy';
     const name = document.createElement('strong'); name.textContent = technology.name || 'Unknown technology';
-    const category = document.createElement('small'); category.textContent = technology.category || 'Technology';
+    const category = document.createElement('small');
+    category.textContent = technology.version
+      ? `${technology.category || 'Technology'} · Version ${technology.version}`
+      : technology.versionHint
+        ? `${technology.category || 'Technology'} · ${technology.versionHint} asset hint (unverified)`
+        : technology.category || 'Technology';
     copy.append(name, category); item.append(icon, copy);
     const confidence = Number(technology.confidence);
     if (Number.isFinite(confidence) && confidence > 0) {
@@ -661,6 +689,7 @@ function appendTechnologyRows(site) {
     row.append(makeTextCell(site.url || site.finalUrl, 'technical-value table-url-cell'));
     row.append(makeTextCell(technology.category || 'Technology'));
     row.append(makeTextCell(technology.name, 'package-name-cell'));
+    row.append(makeTextCell(detectedVersionText(technology), 'technical-value'));
     row.append(makeTextCell(`${Math.round((Number(technology.confidence) || 0) * 100)}%`));
     const evidence = makeTextCell((technology.evidence || []).join('; ') || 'Public asset or response fingerprint', 'evidence-cell');
     evidence.title = evidence.textContent;
@@ -818,11 +847,11 @@ function renderLiveSiteResult(event) {
   packageResultsCount.textContent = hasIncompleteSites ? 'Unavailable' : `${completedPackageCount} ${completedPackageCount === 1 ? 'dependency' : 'dependencies'}`;
   pagesTotal.textContent = `${completedPageCount} ${completedPageCount === 1 ? 'page' : 'pages'} visited`;
   pagesSummary.classList.toggle('hidden', completedPageCount === 0);
-  updateDashboard(liveSiteData);
+  updateDashboard(liveSiteData, { scanState: 'running' });
   if (completedSiteCount === 1) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function present(resultsData, { isBatch = false, output } = {}) {
+function present(resultsData, { isBatch = false, output, scanState = 'complete' } = {}) {
   const sites = (Array.isArray(resultsData) ? resultsData : [resultsData]).filter(Boolean);
   const hasIncompleteSites = sites.some((site) => site.reportEligible !== true);
   const allScansComplete = sites.length > 0 && sites.every((site) => site.scanCompleted === true && site.reportEligible === true);
@@ -836,7 +865,7 @@ function present(resultsData, { isBatch = false, output } = {}) {
     appendVulnerabilityRows(site, site.packages || []);
     appendPages(site);
   }
-  updateDashboard(sites, { isBatch });
+  updateDashboard(sites, { isBatch, scanState });
   setResultTab('sites');
   if (!packageTableBody.children.length) {
     const row = document.createElement('tr');

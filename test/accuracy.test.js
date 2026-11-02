@@ -24,6 +24,23 @@ test('WordPress generator metadata is retained as core version evidence', () => 
   assert.equal(core.version, '6.7.1');
 });
 
+test('WordPress core release from wp-includes assets is surfaced as an unverified version hint', () => {
+  const [core] = detectWordPress('<script src="/wp-includes/js/wp-emoji-release.min.js?ver=6.8.3"></script>');
+  assert.equal(core.componentType, 'core');
+  assert.equal(core.version, null);
+  assert.equal(core.versionHint, '6.8.3');
+  assert.equal(core.versionHintSource, 'wordpress-core-asset-query');
+});
+
+test('conflicting WordPress asset versions are not presented as a single version', () => {
+  const [plugin] = detectWordPress(
+    '<script src="/wp-content/plugins/example-plugin/a.js?ver=1.2.0"></script><script src="/wp-content/plugins/example-plugin/b.js?ver=1.3.0"></script>',
+  );
+  assert.equal(plugin.version, null);
+  assert.equal(plugin.versionHint, null);
+  assert.equal(plugin.versionHintSource, 'conflicting asset version hints');
+});
+
 test('WordPress asset cache URLs are not treated as npm package versions', () => {
   assert.equal(inferFromUrl('https://wordpress.org/wp-includes/js/wp-emoji-release.min.js?ver=7.2-beta1-64681'), null);
   assert.equal(inferFromUrl('https://example.com/wp-content/plugins/sample/assets/app.js?ver=4.1.0'), null);

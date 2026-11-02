@@ -6,22 +6,22 @@ const { mergeEvidence } = require('./inference/merge');
 const { normalizeKey } = require('./inference/naming');
 const { throwIfAborted, isAbortError } = require('./util/abort');
 const { detectWordPress, enrichVulnerabilities } = require('./vulnerabilities');
-const { checkWordPressExposure } = require('./wordpress-security-checks');
+const { checkSiteSecurity } = require('./wordpress-security-checks');
 
 async function scanRenderedPage(renderedPage, options) {
   throwIfAborted(options.signal);
   const framework = renderedPage.technology?.framework || 'unknown';
   const bundler = renderedPage.technology?.bundler || 'unknown';
   const frameworkReason = renderedPage.technology?.reason || null;
-  const technologyStack = renderedPage.technologyStack || [];
+  const detectedTechnologyStack = renderedPage.technologyStack || [];
   if (renderedPage.scanBlocked) {
     const reason = renderedPage.challenge
       ? 'Page presented an access or browser challenge; scanning stopped at this page.'
       : `Page returned HTTP ${renderedPage.status}; scanning stopped at this page.`;
-    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: renderedPage.title, framework, bundler, frameworkReason, technologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: false, scanCompleted: false, packageCount: 0, packages: [], errors: [reason] };
+    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: renderedPage.title, framework, bundler, frameworkReason, technologyStack: detectedTechnologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: false, scanCompleted: false, packageCount: 0, packages: [], errors: [reason] };
   }
   if (renderedPage.error) {
-    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: null, framework: 'unknown', bundler: 'unknown', frameworkReason, technologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: false, scanCompleted: false, packageCount: 0, packages: [], errors: [`Could not render ${renderedPage.url}: ${renderedPage.error}`] };
+    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: null, framework: 'unknown', bundler: 'unknown', frameworkReason, technologyStack: detectedTechnologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: false, scanCompleted: false, packageCount: 0, packages: [], errors: [`Could not render ${renderedPage.url}: ${renderedPage.error}`] };
   }
   try {
     const result = await analyze(renderedPage.finalUrl, {
@@ -32,12 +32,28 @@ async function scanRenderedPage(renderedPage, options) {
     });
     throwIfAborted(options.signal);
     const wpComponents = detectWordPress(renderedPage.html || '', renderedPage.finalUrl);
+    const wpCore = wpComponents.find((component) => component.componentType === 'core');
+    const technologyStack = detectedTechnologyStack.map((technology) => {
+      if (technology.category !== 'CMS' || technology.name !== 'WordPress' || !wpCore) return technology;
+      const versionEvidence = wpCore.version
+        ? `WordPress generator reports version ${wpCore.version}`
+        : wpCore.versionHint
+          ? `WordPress core asset exposes version hint ${wpCore.versionHint}; installed version is unverified`
+          : null;
+      return {
+        ...technology,
+        ...(wpCore.version ? { version: wpCore.version } : {}),
+        ...(wpCore.versionConflict ? { versionConflict: true } : {}),
+        ...(wpCore.versionHint ? { versionHint: wpCore.versionHint, versionHintSource: wpCore.versionHintSource } : {}),
+        ...(versionEvidence ? { evidence: [...(technology.evidence || []), versionEvidence] } : {}),
+      };
+    });
     const wpPackages = wpComponents.map((component) => ({
       ...component,
       tier: component.version ? 'exact' : 'possible',
       confidence: component.version ? 0.95 : 0.72,
       declared: false,
-      evidence: [{ signal: 'wordpress-asset', version: component.version, detail: `${component.evidence.join(', ')}${component.versionHint ? `; ?ver=${component.versionHint} is an asset hint, not an installed version` : ''}` }],
+      evidence: [{ signal: 'wordpress-asset', version: component.version, detail: `${component.evidence.join(', ')}${component.versionHint ? `; ?ver=${component.versionHint} is an asset version hint, not a verified installed version (${component.versionHintSource || 'public asset'})` : ''}` }],
     }));
     const combinedPackages = [...result.packages];
     for (const component of wpPackages) {
@@ -48,6 +64,7 @@ async function scanRenderedPage(renderedPage, options) {
       finalUrl: renderedPage.finalUrl,
       depth: renderedPage.depth,
       status: renderedPage.status,
+      headers: renderedPage.headers || {},
       linksFound: renderedPage.linksFound || 0,
       title: renderedPage.title,
       framework,
@@ -72,7 +89,7 @@ async function scanRenderedPage(renderedPage, options) {
       message: error?.message || String(error),
       stack: error?.stack || null,
     });
-    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: renderedPage.title, framework, bundler, frameworkReason, technologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: true, scanCompleted: false, packageCount: 0, packages: [], errors: [error.message] };
+    return { url: renderedPage.url, finalUrl: renderedPage.finalUrl, depth: renderedPage.depth, status: renderedPage.status, linksFound: renderedPage.linksFound || 0, title: renderedPage.title, framework, bundler, frameworkReason, technologyStack: detectedTechnologyStack, assetsDiscovered: renderedPage.assetCount || 0, scriptsDiscovered: renderedPage.scriptsDiscovered || 0, dashboardChecked: true, scanCompleted: false, packageCount: 0, packages: [], errors: [error.message] };
   }
 }
 
@@ -200,11 +217,35 @@ async function analyzeSite(target, options = {}) {
   }));
   const wordpressPackages = [];
   for (const page of pages) for (const pkg of page.packages || []) {
-    if (pkg.ecosystem === 'WordPress' && !wordpressPackages.some((item) => item.componentType === pkg.componentType && item.slug === pkg.slug)) wordpressPackages.push(pkg);
+    if (pkg.ecosystem !== 'WordPress') continue;
+    const existing = wordpressPackages.find((item) => item.componentType === pkg.componentType && item.slug === pkg.slug);
+    if (!existing) {
+      wordpressPackages.push({ ...pkg, evidence: [...(pkg.evidence || [])] });
+      continue;
+    }
+    existing.evidence = [...new Map([...(existing.evidence || []), ...(pkg.evidence || [])].map((item) => [`${item.signal}:${item.version || ''}:${item.detail}`, item])).values()];
+    if (existing.versionConflict || pkg.versionConflict || existing.versionSource === 'conflicting exact version signals' || pkg.versionSource === 'conflicting exact version signals' || (existing.version && pkg.version && existing.version !== pkg.version)) {
+      existing.version = null;
+      existing.versionSource = 'conflicting exact version signals';
+      existing.versionConflict = true;
+    } else if (!existing.version && !existing.versionSource && pkg.version) existing.version = pkg.version;
+    const hintConflict = existing.versionHintSource === 'conflicting asset version hints' || pkg.versionHintSource === 'conflicting asset version hints';
+    const observedHints = [...new Set([existing.versionHint, pkg.versionHint].filter(Boolean))];
+    if (hintConflict || observedHints.length > 1) {
+      existing.versionHint = null;
+      existing.versionHintSource = 'conflicting asset version hints';
+    } else if (observedHints.length === 1) {
+      existing.versionHint = observedHints[0];
+      existing.versionHintSource ||= pkg.versionHintSource;
+    }
   }
-  const securityAssessment = wordpressPackages.length
-    ? await checkWordPressExposure(crawl.finalUrl || String(target), { signal: options.signal })
-    : null;
+  const securityAssessment = await checkSiteSecurity(crawl.finalUrl || String(target), {
+    signal: options.signal,
+    includeWordPress: wordpressPackages.length > 0,
+    includeSiteWideChecks: options.scanMode !== 'shallow' && options.singlePageOnly !== true,
+    responseHeaders: pages[0]?.headers,
+    responseStatus: pages[0]?.status,
+  });
   const packages = await enrichVulnerabilities([...detectedPackages, ...wordpressPackages], { signal: options.signal });
   const verifiedPackageNames = new Set(packages.map((pkg) => normalizeKey(pkg.name)));
   const packageLeadMap = new Map();
@@ -233,6 +274,15 @@ async function analyzeSite(target, options = {}) {
       const existing = technologyByKey.get(key);
       existing.confidence = Math.max(existing.confidence || 0, tech.confidence || 0);
       existing.evidence = [...new Set([...existing.evidence, ...(tech.evidence || [])])];
+      if (existing.versionConflict || tech.versionConflict || (existing.version && tech.version && existing.version !== tech.version)) {
+        existing.version = null;
+        existing.versionConflict = true;
+      } else if (!existing.version && !existing.versionConflict && tech.version) existing.version = tech.version;
+      const versionHints = [...new Set([existing.versionHint, tech.versionHint].filter(Boolean))];
+      if (existing.versionHintConflict || tech.versionHintConflict || versionHints.length > 1) {
+        existing.versionHint = null;
+        existing.versionHintConflict = true;
+      } else if (versionHints.length === 1) existing.versionHint = versionHints[0];
     }
   }
   const technologyStack = [...technologyByKey.values()].sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
@@ -278,7 +328,11 @@ async function analyzeSite(target, options = {}) {
     scriptsDiscovered,
     pagesScanned: pages.filter((page) => page.scanCompleted === true).length,
     totalDependencies: packages.length,
-    dependencies: packages.map((pkg) => ({ name: pkg.name, version: pkg.version || 'unknown' })),
+    dependencies: packages.map((pkg) => ({
+      name: pkg.name,
+      version: pkg.version || 'unknown',
+      ...(pkg.versionHint ? { versionHint: pkg.versionHint, versionHintSource: pkg.versionHintSource || 'asset' } : {}),
+    })),
     vulnerabilities: packages.flatMap((pkg) => (pkg.vulnerabilities || []).map((vulnerability) => ({
       package: pkg.name,
       version: pkg.version || 'unknown',
@@ -334,7 +388,7 @@ async function analyzeSite(target, options = {}) {
       stoppedReason: crawl.stoppedReason,
       warnings: crawl.warnings,
     },
-    pages: pages.map(({ packages: pagePackages, declaredDependencies: _declared, ...page }) => ({ ...page, packageNames: pagePackages.map((pkg) => pkg.name) })),
+    pages: pages.map(({ packages: pagePackages, declaredDependencies: _declared, headers: _headers, ...page }) => ({ ...page, packageNames: pagePackages.map((pkg) => pkg.name) })),
     initialPackages: pages[0]?.packages || [],
     newlyDiscovered,
     packageCount: packages.length,

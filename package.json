@@ -1,6 +1,6 @@
 {
   "name": "debun-plus",
-  "version": "1.2.9",
+  "version": "1.3.0",
   "description": "Infer npm packages, versions, and transitive dependencies from production JavaScript bundles using debun-cli and registry-backed AST fingerprints.",
   "license": "MIT",
   "type": "commonjs",

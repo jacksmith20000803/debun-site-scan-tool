@@ -174,10 +174,11 @@ function summarizeSiteResult(result) {
     reportEligible: result.reportEligible,
     packageCount: result.packageCount,
     pagesScanned: (result.pages || []).filter((page) => page.scanCompleted === true).length,
-    packages: (result.packages || []).map(({ name, version, versionHint, ecosystem, componentType, slug, tier, confidence, alternatives, evidence, declared, declaredRanges, installationStatus, vulnerabilityStatus, vulnerabilityLookup, vulnerabilities, potentialVulnerabilities, vulnerabilityDatabase }) => ({
+    packages: (result.packages || []).map(({ name, version, versionHint, versionHintSource, ecosystem, componentType, slug, tier, confidence, alternatives, evidence, declared, declaredRanges, installationStatus, vulnerabilityStatus, vulnerabilityLookup, vulnerabilities, potentialVulnerabilities, vulnerabilityDatabase }) => ({
       name,
       version,
       versionHint,
+      versionHintSource,
       ecosystem,
       componentType,
       slug,
