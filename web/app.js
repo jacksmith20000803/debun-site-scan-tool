@@ -593,25 +593,29 @@ function updateDashboard(sites, { isBatch = false, scanState = 'complete' } = {}
           : 'No components were detected for vulnerability matching.';
   const severityRisk = ['critical', 'high', 'medium', 'low'].find((level) => severityCounts[level]);
   const riskRanks = { good: 0, low: 1, medium: 2, high: 3, critical: 4 };
-  // WordPress advisory feeds can return valid findings without CVSS metadata.
-  // In that case, use finding volume as a conservative fallback so a large
-  // set of unscored advisories is not incorrectly shown as "Unknown".
-  const volumeRisk = severityCounts.unknown >= 50 ? 'critical'
-    : severityCounts.unknown >= 10 ? 'high'
-      : severityCounts.unknown >= 3 ? 'medium'
-        : severityCounts.unknown > 0 ? 'low' : null;
+  // Unscored confirmed findings and version-unverified advisories still need
+  // a visible triage signal. Use their count for the gauge position, but mark
+  // the result as unverified so it is never mistaken for confirmed site risk.
+  const volumeCount = Math.max(severityCounts.unknown, potentialVulnerabilities.length);
+  const volumeRisk = volumeCount >= 50 ? 'critical'
+    : volumeCount >= 10 ? 'high'
+      : volumeCount >= 3 ? 'medium'
+        : volumeCount > 0 ? 'low' : null;
   const volumeDeterminesRisk = Boolean(volumeRisk && (!severityRisk || riskRanks[volumeRisk] > riskRanks[severityRisk]));
-  const assessedRisk = vulnerabilities.length === 0 ? (potentialVulnerabilities.length ? null : 'good')
+  const assessedRisk = vulnerabilities.length === 0 ? (potentialVulnerabilities.length ? volumeRisk : 'good')
     : volumeDeterminesRisk ? volumeRisk
       : severityRisk;
   const gaugeLabels = { good: 'GOOD', critical: 'HIGH RISK', high: 'HIGH', medium: 'MEDIUM', low: 'LOW' };
   const gaugeAngles = { good: -90, critical: 90, high: 45, medium: 0, low: -45 };
+  const unverifiedRisk = assessedRisk && potentialVulnerabilities.length > 0 && (!severityRisk || volumeDeterminesRisk);
   riskGauge.className = `risk-gauge${assessedRisk ? ` has-assessment level-${assessedRisk}` : ''}`;
-  riskGaugeLevel.textContent = assessedRisk ? gaugeLabels[assessedRisk] : 'UNKNOWN';
+  riskGaugeLevel.textContent = assessedRisk ? `${gaugeLabels[assessedRisk]}${unverifiedRisk ? ' · UNVERIFIED' : ''}` : 'UNKNOWN';
   riskGaugeNeedle.setAttribute('transform', `rotate(${assessedRisk ? gaugeAngles[assessedRisk] : 0} 110 112)`);
   riskGaugeSvg.setAttribute('aria-label', assessedRisk
-    ? volumeDeterminesRisk
-      ? `Site risk: ${gaugeLabels[assessedRisk]}, based on ${severityCounts.unknown} findings without severity data`
+    ? unverifiedRisk
+      ? `Provisional site-risk triage: ${gaugeLabels[assessedRisk]} based on ${potentialVulnerabilities.length} unverified advisories; affected installed versions are not confirmed`
+      : volumeDeterminesRisk
+        ? `Site risk: ${gaugeLabels[assessedRisk]}, based on ${severityCounts.unknown} findings without severity data`
       : `Site risk: ${gaugeLabels[assessedRisk]}, highest matched vulnerability severity`
     : potentialVulnerabilities.length
       ? 'Site risk is unknown because affected component versions could not be confirmed'
@@ -619,8 +623,10 @@ function updateDashboard(sites, { isBatch = false, scanState = 'complete' } = {}
   riskGaugeCaption.textContent = assessedRisk
     ? assessedRisk === 'good'
       ? 'No matched vulnerabilities reported.'
-      : volumeDeterminesRisk
-        ? `${severityCounts.unknown} findings lack severity data; risk is elevated based on finding volume.`
+      : unverifiedRisk
+        ? `${potentialVulnerabilities.length} advisories need version verification; gauge shows a provisional triage band, not confirmed risk.`
+        : volumeDeterminesRisk
+          ? `${severityCounts.unknown} findings lack severity data; risk is elevated based on finding volume.`
         : `Highest matched severity across ${vulnerabilities.length} ${vulnerabilities.length === 1 ? 'finding' : 'findings'}.`
     : potentialVulnerabilities.length
       ? `${potentialVulnerabilities.length} advisories need installed-version verification.`
